@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC 
+          "-//OpenSymphony Group//XWork Validator 1.0.2//EN" 
+          "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd" >
+                    
+<validators> 
+    <field name="c.name"> 
+        <field-validator type="requiredstring"> 
+            <message key="pro.category.required"></message>
+        </field-validator> 
+    </field>
+    <!--  
+    <field name="n.content"> 
+        <field-validator type="requiredstring" short-circuit="true"> 
+            <message key="alert.addNews.NewsContent.required"/> 
+        </field-validator> 
+        <field-validator type="stringlength">
+        	<param name="minLength">10</param>
+        	<param name="maxLength">300</param>
+        	<message>新闻内容的长度必须在10到300之间！</message>
+        </field-validator>
+    </field>  
+    -->
+</validators>

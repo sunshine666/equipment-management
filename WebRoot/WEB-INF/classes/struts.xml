@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <include file="struts-default.xml"/>
+    
+    <package name="struts2" extends="struts-default" namespace="/">
+    <action name="addnewone" class="pro.action.userAction" method="addUser1">
+    		<result type="redirect">login.jsp</result>
+    		<result name="none">/new.jsp</result>
+    		<result name="input">/new.jsp</result>
+    	</action>
+    </package>
+ 
+    <package name="struts2_sys" extends="struts-default" namespace="/sys">
+    	<action name="exit" class="pro.action.userAction" method="exit">
+			<result>/login.jsp</result>
+		</action>
+
+		<action name="checkLogin" class="pro.action.userAction" method="checkLogin">
+			<result type="redirect">/index.jsp</result>
+			<result name="login">/login.jsp</result>
+		</action>
+		
+    </package>
+     
+    <package name="struts2_admin" extends="struts-default" namespace="/admin">
+    
+       <interceptors> 
+            <interceptor name ="checkLogin" class ="pro.interceptor.LoginInterceptor"/>
+            <interceptor name ="checkRole" class ="pro.interceptor.RoleInterceptor"/>
+            <interceptor-stack name="MyInterceptorStack"> 
+            	<interceptor-ref name="checkLogin"/>
+            	<interceptor-ref name="checkRole"/>
+				<interceptor-ref name="defaultStack"/> 
+			</interceptor-stack> 
+		</interceptors>
+		
+        <default-interceptor-ref name="MyInterceptorStack"/>
+        
+        <global-results>
+		    <result name="login" type="redirectAction">../sys/exit.action</result>
+			<result name="error">/error.jsp</result>
+		</global-results>
+        
+        <global-exception-mappings>
+        	<exception-mapping result="error" exception="java.sql.SQLExctption"></exception-mapping>
+        	<exception-mapping result="error" exception="java.lang.ArithmeticException"></exception-mapping>
+        	<exception-mapping result="error" exception="java.lang.NullPointerException"></exception-mapping>
+        </global-exception-mappings>
+        
+        
+        <!-- 借出插入查询 -->
+        <action name="getBookinList" class="pro.action.bookinAction" method="getBookins">
+    		<result>/admin/bookinList.jsp</result>
+    		<result name="error">/error.jsp</result>
+    	</action>
+    	
+    	<action name="getBookoutList" class="pro.action.bookoutAction" method="getBookouts">
+    		<result>/admin/bookoutList.jsp</result>
+    	</action>
+    	
+    	<action name="getBookstoreList" class="pro.action.bookstoreAction" method="getBookstores">
+    		<result>/admin/bookstoreList.jsp</result>
+    	</action>
+    	
+    	<action name="delep" class="pro.action.bookstoreAction" method="delep">
+    		<result type="redirect">/admin/selectBookstore.action</result>
+    	</action>
+        
+        <!-- 类别管理 -->
+         <action name="categoryList" class="pro.action.categoryAction" method="getAllCategory">
+    		<result>/admin/categoryList.jsp</result>
+    	</action>
+    	
+    	<action name="addCategory" class="pro.action.categoryAction" method="addCategory">
+    		<result type="redirect">categoryList.action</result>
+    		<result name="none">/admin/addCategory.jsp</result>
+    		<result name="input">/admin/addCategory.jsp</result>
+    	</action>
+    	
+        <action name="getCategory" class="pro.action.categoryAction" method="getCategory">
+    		<result>/admin/editCategory.jsp</result><result name="error">/error.jsp</result>
+    	</action>
+    	
+     	<action name="editCategory" class="pro.action.categoryAction" method="editCategory">
+    		<result type="redirect">categoryList.action</result><result name="error">/error.jsp</result>
+    		<result name="input">/admin/editCategory.jsp</result>
+    	</action>         
+        
+        <!-- 规格管理 -->
+        <action name="publisherList" class="pro.action.publisherAction" method="getAllPublisher">
+    		<result>/admin/publisherList.jsp</result>
+    	</action>
+    	
+    	<action name="addPublisher" class="pro.action.publisherAction" method="addPublisher">
+    		<result type="redirect">publisherList.action</result>
+    		<result name="none">/admin/addPublisher.jsp</result>
+    		<result name="input">/admin/addPublisher.jsp</result>
+    	</action>
+    	
+        <action name="getPublisher" class="pro.action.publisherAction" method="getPublisher">
+    		<result>/admin/editPublisher.jsp</result>
+    	</action>
+    	
+     	<action name="editPublisher" class="pro.action.publisherAction" method="editPublisher">
+    		<result type="redirect">publisherList.action</result>
+    		<result name="input">/admin/editPublisher.jsp</result>
+    	</action>   	    	
+    	
+        <!-- 用户管理 -->
+        <action name="getUser" class="pro.action.userAction" method="getUser">
+    		<result>/admin/editRole.jsp</result>
+    	</action>
+        
+        <action name="addUser" class="pro.action.userAction" method="addUser">
+    		<result type="redirect">userList.action</result>
+    		<result name="none">/admin/addUser.jsp</result>
+    		<result name="input">/admin/addUser.jsp</result>
+    	</action>
+    
+    	<action name="editPwd" class="pro.action.userAction" method="editUser">
+    		<result>/success.html</result>
+    		<result name="none">/admin/editPwd.jsp</result>
+    		<result name="input">/admin/editPwd.jsp</result>
+    	</action>
+    	
+    	<action name="editRole" class="pro.action.userAction" method="editRole">
+    		<result type="redirect">userList.action</result>
+    	</action>    	
+    	
+    	<action name="delUser" class="pro.action.userAction" method="delUser">
+    		<result type="redirect">userList.action</result>
+    	</action>
+    	
+    	<action name="userList" class="pro.action.userAction" method="getAllUsers">
+    		<result>userList.jsp</result>
+    	</action>
+    	
+    	<action name="*" class="pro.action.userAction" method="input">
+    		<result name="input">{1}.jsp</result>
+    	</action>  
+    	
+    </package>
+      
+    <package name="struts2_user" extends="struts2_admin" namespace="/user">
+		
+       <interceptors> 
+            <interceptor name ="checkLogin" class ="pro.interceptor.LoginInterceptor"/>
+            <interceptor-stack name="MyInterceptorStack"> 
+            	<interceptor-ref name="checkLogin"/>
+				<interceptor-ref name="defaultStack"/> 
+			</interceptor-stack> 
+		</interceptors>
+		
+        <default-interceptor-ref name="MyInterceptorStack"/>
+   
+    	<action name="editPwd" class="pro.action.userAction" method="editUser">
+    		<result>/success.html</result>
+    		<result name="none">/user/editPwd.jsp</result>
+    		<result name="input">/user/editPwd.jsp</result>
+    	</action>
+    	
+    	<action name="addBookin" class="pro.action.bookinAction" method="addBookin">
+    		<result>/success.html</result>
+    		<result name="input">/user/addBookin.jsp</result>
+    	</action>  
+   
+    	<action name="addBookout" class="pro.action.bookoutAction" method="addBookout">
+    		<result>/success.html</result>
+    		<result name="input">/user/addBookout.jsp</result>
+    	</action>
+    	
+    	<action name="getBook" class="pro.action.bookoutAction" method="getBook">
+    		<result>/user/addBookout.jsp</result>
+    	</action> 
+    	
+    	<action name="*" class="pro.action.userAction" method="input">
+    		<result name="input">{1}.jsp</result>
+    	</action>   	   	
+		
+    </package>
+    
+    <package name="struts2_jsp" extends="struts2_admin" namespace="">
+        
+       <interceptors> 
+            <interceptor name ="checkLogin" class ="pro.interceptor.LoginInterceptor"/>
+            <interceptor-stack name="MyInterceptorStack"> 
+            	<interceptor-ref name="checkLogin"/>
+				<interceptor-ref name="defaultStack"/> 
+			</interceptor-stack> 
+		</interceptors>
+		
+        <default-interceptor-ref name="MyInterceptorStack"/>
+	    
+	    	<action name="*" class="pro.action.userAction" method="input">
+	    		<result name="input">{1}.jsp</result>
+	    	</action>  
+		
+    </package>
+       
+</struts>

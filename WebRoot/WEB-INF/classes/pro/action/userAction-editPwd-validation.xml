@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC 
+          "-//OpenSymphony Group//XWork Validator 1.0.2//EN" 
+          "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd" >
+                    
+<validators> 
+
+    <field name="loginpwd"> 
+        <field-validator type="requiredstring" short-circuit="true"> 
+            <message key="pro.editpwd.requiredpwd0"></message>
+        </field-validator> 
+    </field>
+    <field name="newPwd"> 
+        <field-validator type="requiredstring" short-circuit="true"> 
+            <message key="pro.editpwd.requiredpwd1"></message>
+        </field-validator>
+        <field-validator type="stringlength" short-circuit="true">
+        	<param name="minLength">6</param>
+        	<param name="maxLength">10</param>
+        	<message key="pro.editpwd.pwdlength"></message>
+        </field-validator> 
+
+        <field-validator type="fieldexpression"> 
+        	<param name="expression"><![CDATA[(newPwd1 == newPwd)]]></param>
+            <message key="pro.editpwd.pwd1pwd2"></message>
+        </field-validator> 
+    </field>
+
+</validators>
