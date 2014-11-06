@@ -15,7 +15,7 @@ body {
 
 <table width="778" border="0" cellspacing="0" cellpadding="0" align="center">
   <tr>
-    <td height="88" colspan="10"><img src="../img/logo.gif" width="776" border="0"/></td>
+    <td height="88" colspan="10"><img src="../img/logo3.gif" width="776" border="0"/></td>
   </tr>
   <tr>
     <td width="13%" align="center">

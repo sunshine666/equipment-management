@@ -9,6 +9,8 @@ body {
 	margin-top: 0px;
 	margin-right: 0px;
 	margin-bottom: 0px;
+	background-image: url(img/8.jpg);    
+    background-repeat: repeat-x; 
 }
 -->
 </style>

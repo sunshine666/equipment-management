@@ -8,6 +8,7 @@
 <s:textfield name="bo.book.bookISBN" key="pro.book.ISBN" id="bookISBN" onblur="getBook()" ></s:textfield>
 <s:textfield name="bo.book.bookName" key="pro.book.name" readonly="true"></s:textfield>
 <s:textfield name="bo.book.author" key="pro.book.author" readonly="true"></s:textfield>
+<s:textfield name="bo.book.bookDesc" key="pro.book.desc" readonly="true"></s:textfield>
 <s:textfield name="bo.book.salePrice" key="pro.book.saleprice" readonly="true" id="saleprice"></s:textfield>
 <s:textfield name="bo.SaleNum" key="pro.book.salenum" onblur="jisuan()" id="salenum"></s:textfield>
 <s:hidden name="bo.allPrice" key="pro.book.allprice" readonly="true" id="zj"></s:hidden>

@@ -8,7 +8,7 @@
     
     <package name="struts2" extends="struts-default" namespace="/">
     <action name="addnewone" class="pro.action.userAction" method="addUser1">
-    		<result type="redirect">login.jsp</result>
+    		<result type="redirect">/login.jsp</result>
     		<result name="none">/new.jsp</result>
     		<result name="input">/new.jsp</result>
     	</action>
@@ -23,6 +23,12 @@
 			<result type="redirect">/index.jsp</result>
 			<result name="login">/login.jsp</result>
 		</action>
+		
+		<action name="addnewone1" class="pro.action.userAction" method="addUser1">
+    		<result type="redirect">/login.jsp</result>
+    		<result name="none">/sys/new.jsp</result>
+    		<result name="input">/sys/new.jsp</result>
+    	</action>
 		
     </package>
      
@@ -163,7 +169,7 @@
     		<result name="input">/user/editPwd.jsp</result>
     	</action>
     	
-    	<action name="addBookin" class="pro.action.bookinAction" method="addBookin">
+    	<action name="addBookin" class="pro.action.bookinAction" >
     		<result>/success.html</result>
     		<result name="input">/user/addBookin.jsp</result>
     	</action>  
@@ -171,6 +177,10 @@
     	<action name="addBookout" class="pro.action.bookoutAction" method="addBookout">
     		<result>/success.html</result>
     		<result name="input">/user/addBookout.jsp</result>
+    	</action>
+    	
+    	<action name="getBookstoreList" class="pro.action.bookstoreAction" method="getBookstores">
+    		<result>/user/bookstoreList.jsp</result>
     	</action>
     	
     	<action name="getBook" class="pro.action.bookoutAction" method="getBook">

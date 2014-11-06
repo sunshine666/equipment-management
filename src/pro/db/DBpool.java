@@ -1,7 +1,11 @@
 package pro.db;
+import java.io.InputStream;
 import java.sql.*;
+import java.util.Properties;
+
 import javax.naming.*;
 import javax.sql.DataSource;
+
 
 public class DBpool
 {
@@ -11,9 +15,13 @@ public class DBpool
 	{
 			try
 			{
-				
+				Properties p = new Properties(); 
+				InputStream in = DBpool.class.getResourceAsStream("/1.properties");  
+	            p.load(in);  
+	            in.close(); 
+	            String url=p.getProperty("url"); 
 				Class.forName("com.mysql.jdbc.Driver").newInstance();
-				conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/bookshop","root","");
+				conn=DriverManager.getConnection(url,"root","");
 				
 			}
 			catch(Exception e)

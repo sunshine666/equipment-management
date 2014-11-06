@@ -7,6 +7,7 @@ body {
 	margin-top: 0px;
 	margin-right: 0px;
 	margin-bottom: 0px;
+	background-image: url(img/z.jpg);   
 }
 -->
 </style>

@@ -107,6 +107,7 @@ public class bookstoreDAO
 				b.setNowNum(rs.getInt("NowNum"));
 				b.setSalePrice(rs.getDouble("salePrice"));
 				b.setStatus(rs.getInt("status"));
+				b.setPicadr(rs.getString("picadr"));
 				c.add(b);	
 			}
 		}

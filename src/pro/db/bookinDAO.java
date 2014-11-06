@@ -32,7 +32,7 @@ public class bookinDAO
 		}
 	}
 	
-    public int addBookin(Bookin b)
+    public int addBookin(Bookin b,String picadr)
 	{
 			int jg=0;
 			int NowNum=0;
@@ -55,7 +55,7 @@ public class bookinDAO
 				}
 				else
 				{
-					pstate1=conn.prepareStatement("insert into bookstore (bookISBN,bookName,bookDesc,publisherID,author,categoryID,salePrice,NowNum,status,unit) values (?,?,?,?,?,?,?,?,?,?)");
+					pstate1=conn.prepareStatement("insert into bookstore (bookISBN,bookName,bookDesc,publisherID,author,categoryID,salePrice,NowNum,status,unit,picadr) values (?,?,?,?,?,?,?,?,?,?,?)");
 					pstate1.setString(1, b.getBook().getBookISBN());	
 					pstate1.setString(2, b.getBook().getBookName());
 					pstate1.setString(3, b.getBook().getBookDesc());
@@ -66,6 +66,7 @@ public class bookinDAO
 					pstate1.setInt(8, b.getBuyNum());
 					pstate1.setInt(9, 1);
 					pstate1.setString(10, b.getUnit());
+					pstate1.setString(11, picadr);
 					
 					pstate1.executeUpdate();
 					pstate1.close();

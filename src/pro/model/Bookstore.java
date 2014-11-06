@@ -12,10 +12,11 @@ public class Bookstore {
 	private int nowNum;
 	private int status;
 	private String unit;
+	private String picadr;
 
 	public Bookstore() {}
 
-	public Bookstore(String bookISBN,String bookName,String bookDesc,int publisherID,String author,int categoryID,double salePrice, int nowNum, int status,String unit) {
+	public Bookstore(String bookISBN,String bookName,String bookDesc,int publisherID,String author,int categoryID,double salePrice, int nowNum, int status,String unit,String picadr) {
 		
 		this.bookISBN=bookISBN;
 		this.bookName=bookName;
@@ -27,6 +28,7 @@ public class Bookstore {
 		this.nowNum = nowNum;
 		this.status = status;
 		this.unit = unit;
+		this.picadr = picadr;
 	}
 
 	public String getBookISBN() {
@@ -107,6 +109,14 @@ public class Bookstore {
 
 	public void setUnit(String unit) {
 		this.unit = unit;
+	}
+	
+	public String getPicadr() {
+		return picadr;
+	}
+
+	public void setPicadr(String picadr) {
+		this.picadr = picadr;
 	}
 
 }

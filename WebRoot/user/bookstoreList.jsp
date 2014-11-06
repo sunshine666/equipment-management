@@ -15,7 +15,6 @@
 <td><s:text name="pro.book.saleprice"/></td>
 <td><s:text name="pro.admin.nownum"/></td>
 <td><s:text name="pro.admin.bookstatus"/></td>
-<td><s:text name="报废/恢复"/></td>
 </tr>
 <s:set name="publisherMap" value="#session.publisherMap" />
 <s:set name="categoryMap" value="#session.categoryMap" />
@@ -42,16 +41,12 @@
 <td>
 <s:set name="statu" value="%{status}"/>
 <s:if test="#statu==0">
-	停止使用<s:property value="停止销售"/>
+	停止暂停<s:property value="停止销售"/>
 </s:if>
 <s:if test="#statu==1">
 	正常使用<s:property value="正常销售"/>
 </s:if>
 </td>
- <td><a href='<s:url action="delep" namespace="/admin">
-    <s:param name="myid" value="bookISBN"></s:param>
-    <s:param name="mystatus" value="status"></s:param>
-    </s:url>'>报废/恢复</a></td>
 </tr>
 </s:iterator>
 </table>

@@ -4,7 +4,7 @@
   <body>
   <h2><center><s:text name="pro.bookin" /></center></h2>
   <center>
-<s:form action="addBookin" namespace="/user" method="post">
+<s:form action="addBookin" namespace="/user" method="post" enctype="multipart/form-data">
 <s:textfield name="bi.book.bookISBN" key="pro.book.ISBN"></s:textfield>
 <s:textfield name="bi.book.bookName" key="pro.book.name"></s:textfield>
 <s:textarea name="bi.book.bookDesc" key="pro.book.desc" rows="6"/>
@@ -16,6 +16,7 @@
 <input type="hidden" value="<% out.print(session.getAttribute("loginname")); %>" name="bi.operator">
 <s:hidden name="bi.buyDate" value=""></s:hidden>
 <input type="hidden" value="<% out.print(session.getAttribute("unit")); %>" name="bi.unit">
+<s:file name="upload" label="图片"></s:file>
 <s:submit name="submit" key="pro.user.btn"></s:submit>
 </s:form></center>
   </body>
