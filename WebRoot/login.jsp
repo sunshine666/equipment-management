@@ -6,7 +6,7 @@
   </head>
   <body>
   <h3><center><s:text name="pro.login.loginTitle" /></center></h3>
-  <center><a href='new.jsp'>点击注册</a></center>
+  <!--<center><a href='new.jsp'>点击注册</a></center>-->
   <center>
 <s:form action="checkLogin" namespace="/sys" >
 <s:textfield name="loginname" key="pro.login.loginName" cssStyle="width:100"></s:textfield>

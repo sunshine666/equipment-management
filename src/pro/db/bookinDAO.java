@@ -142,9 +142,7 @@ public class bookinDAO
 				state2=conn.createStatement();
 				
 				System.out.println("select * from bookin "+sql5+" and bookISBN in "+firstList);
-				
-				rs2=state2.executeQuery("select * from bookin "+sql5+" and bookISBN in "+firstList+" and unit='"+unit+"'");
-				
+				rs2=state2.executeQuery("select * from bookin "+sql5+" and bookISBN in "+firstList);
 				bookstoreDAO bd=new bookstoreDAO();
 				while(rs2.next())
 				{

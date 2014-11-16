@@ -75,6 +75,19 @@
     	<action name="delep" class="pro.action.bookstoreAction" method="delep">
     		<result type="redirect">/admin/selectBookstore.action</result>
     	</action>
+    	
+    	<action name="addBookin" class="pro.action.bookinAction" >
+    		<result>/success.html</result>
+    		<result name="input">/admin/addBookin.jsp</result>
+    	</action>  
+   
+    	<action name="addBookout" class="pro.action.bookoutAction" method="addBookout">
+    		<result>/success.html</result>
+    		<result name="input">/admin/addBookout.jsp</result>
+    	</action>
+    	<action name="getBook" class="pro.action.bookoutAction" method="getBook">
+    		<result>/admin/addBookout.jsp</result>
+    	</action> 
         
         <!-- 类别管理 -->
          <action name="categoryList" class="pro.action.categoryAction" method="getAllCategory">

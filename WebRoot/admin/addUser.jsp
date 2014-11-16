@@ -7,7 +7,7 @@
 <s:form action="addUser" namespace="/admin" method="post">
 	<s:textfield name="u.name" key="pro.login.loginName"></s:textfield>
 	<s:textfield name="u.pwd" key="pro.login.loginPwd" ></s:textfield>
-	<s:hidden name="u.unit" value="#session.unit"></s:hidden>
+	<s:textfield name="u.unit" key="所属机构" ></s:textfield>
 	<s:radio name="u.roleID"
 	key="pro.admin.setrole"
 	list="#session.roleMap"

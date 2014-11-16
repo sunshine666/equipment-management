@@ -29,6 +29,10 @@ body {
     <s:text name="pro.admin.publishermanager" /></a></td>
     <td width="14%" align="center"><a href='<s:url action="categoryList" namespace="/admin" />' target="middleFrame">
     <s:text name="pro.admin.categorymanager" /></a></td>
+    <td width="14%" align="center"><a href="addBookin.action" target="middleFrame">
+    <s:text name="加入设备" /></a></td>
+    <td width="14%" align="center"><a href="addBookout.action" target="middleFrame">
+    <s:text name="设备修改" /></a></td>
     <td width="15%" align="center"><a href="selectBookin.action" target="middleFrame">
     <s:text name="pro.admin.selectbookin" /></a></td>
     <td width="16%" align="center"><a href="selectBookout.action" target="middleFrame">
