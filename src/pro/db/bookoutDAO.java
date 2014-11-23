@@ -38,7 +38,7 @@ public class bookoutDAO
 			try
 			{	
 				state1=conn.createStatement();
-				rs1=state1.executeQuery("select * from bookstore where bookISBN='"+b.getBook().getBookISBN()+"'");
+				rs1=state1.executeQuery("select * from bookstore where bookISBN='"+b.getBook().getBookISBN()+"'"+" and unit='"+b.getUnit()+"'");
 				if(rs1.next())
 					NowNum=rs1.getInt("NowNum");
 				Status=rs1.getInt("status");
@@ -47,17 +47,16 @@ public class bookoutDAO
 				pstate1=conn.prepareStatement("insert into bookout (bookISBN,saleDate,SaleNum,allPrice,operator,unit) values (?,?,?,?,?,?)");
 				pstate1.setString(1, b.getBook().getBookISBN());
 				pstate1.setString(2, b.getSaleDate());
-				pstate1.setInt(3, 1);
+				pstate1.setInt(3, b.getSaleNum());
 				pstate1.setDouble(4, b.getAllPrice());
 				pstate1.setString(5, b.getOperator());
 				pstate1.setString(6, b.getUnit());
 				
 				pstate1.executeUpdate();
-				pstate2=conn.prepareStatement("update bookstore set author=?,bookDesc=?,unit=? where bookISBN=?");
-				pstate2.setString(1, b.getBook().getAuthor());
-				pstate2.setString(2, b.getBook().getBookDesc());
+				pstate2=conn.prepareStatement("update bookstore set NowNum=? where bookISBN=? and unit=?");
+				pstate2.setInt(1, NowNum-b.getSaleNum());
+				pstate2.setString(2, b.getBook().getBookISBN());
 				pstate2.setString(3, b.getUnit());
-				pstate2.setString(4, b.getBook().getBookISBN());
 
 				jg=pstate2.executeUpdate();
 				}
@@ -124,7 +123,7 @@ public class bookoutDAO
 			firstList=firstList.substring(0, firstList.length()-1);
 			firstList=firstList+")";
 			state2=conn.createStatement();
-			rs2=state2.executeQuery("select * from bookout "+sql5+" and bookISBN in "+firstList);
+			rs2=state2.executeQuery("select * from bookout "+sql5+" and bookISBN in "+firstList+" and unit='"+unit+"'");
 			
 			bookstoreDAO bd=new bookstoreDAO();
 			while(rs2.next())

@@ -37,7 +37,7 @@ public class bookstoreDAO
 		try
 		{	
 			state=conn.createStatement();
-			rs=state.executeQuery("select * from bookstore where bookISBN='"+ISBN+"'");
+			rs=state.executeQuery("select * from bookstore where bookISBN='"+ISBN+"'"+" and unit='"+unit+"'");
 			if(rs.next())
 			{
 				b.setBookISBN(rs.getString("bookISBN"));
@@ -71,10 +71,9 @@ public class bookstoreDAO
 	return b; 		
 	}
 	
-	public ArrayList getBookstoreList(String bookISBN,String bookName,String publisherID,String categoryID,String unit,String role)
+	public ArrayList getBookstoreList(String bookISBN,String bookName,String publisherID,String categoryID,String unit)
 	{
 		ArrayList c=new ArrayList();
-		int count=Integer.parseInt(role);
 
 		String wheresql="";
 		String sql1="1=1";
@@ -95,15 +94,7 @@ public class bookstoreDAO
 		try
 		{	
 			state=conn.createStatement();
-			rs=state.executeQuery("select * from bookstore"+wheresql);
-			if(count==1)
-			{
-				rs=state.executeQuery("select * from bookstore"+wheresql);
-			}
-			else
-			{
-				rs=state.executeQuery("select * from bookstore"+wheresql+" and unit='"+unit+"'");
-			}
+			rs=state.executeQuery("select * from bookstore"+wheresql+" and unit='"+unit+"'");
 			while(rs.next())
 			{		
 				Bookstore b=new Bookstore();
@@ -148,9 +139,9 @@ public class bookstoreDAO
 				state=conn.createStatement();
 				int i=Integer.parseInt(status);
 				if(i==0)
-				    jg=state.executeUpdate("update bookstore set status=1 where bookISBN='"+id+"'");
+				    jg=state.executeUpdate("update bookstore set status=1 where bookISBN='"+id+"' and unit='"+unit+"'");
 				else if(i==1)
-					jg=state.executeUpdate("update bookstore set status=0 where bookISBN='"+id+"'");	
+					jg=state.executeUpdate("update bookstore set status=0 where bookISBN='"+id+"' and unit='"+unit+"'");	
 	
 			}
 			catch(SQLException e)

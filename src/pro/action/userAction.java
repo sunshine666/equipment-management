@@ -119,7 +119,7 @@ public class userAction extends ActionSupport implements Action{
 	public String addUser() throws Exception
 	{
 
-		int jg=ud.addUser(this.u);
+		int jg=ud.addUser(this.u,ActionContext.getContext().getSession().get("unit").toString());
 		if(jg==1)
 			return SUCCESS;
 		else if(jg==2)
@@ -134,7 +134,7 @@ public class userAction extends ActionSupport implements Action{
 	public String addUser1() throws Exception
 	{
 
-		int jg=ud.addUser(this.u);
+		int jg=ud.addUser(this.u,u.getUnit());
 		if(jg==1)
 			return SUCCESS;
 		else if(jg==2)

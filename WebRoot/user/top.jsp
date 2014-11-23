@@ -22,11 +22,11 @@ body {
     <td width="20%" align="center">
 	<a href="editPwd.action" target="middleFrame"><s:text name="pro.user.editpwd" /></a>
 	</td>
-   <!--<td width="20%" align="center"><a href="addBookin.action" target="middleFrame"><s:text name="pro.bookin" /></a></td>--> 
-    <!-- <td width="20%" align="center"><a href="addBookout.action" target="middleFrame"><s:text name="pro.bookout" /></a></td>-->
+    <td width="20%" align="center"><a href="addBookin.action" target="middleFrame"><s:text name="pro.bookin" /></a></td>
+    <td width="20%" align="center"><a href="addBookout.action" target="middleFrame"><s:text name="pro.bookout" /></a></td>
     <td width="20%" align="center">&nbsp;</td>
     <td width="24%" align="center"><a href="selectBookstore.action" target="middleFrame">
-    <s:text name="设备查询" /></a></td>
+    <s:text name="pro.admin.selectbookstore" /></a></td>
   </tr>
 </table>
 
