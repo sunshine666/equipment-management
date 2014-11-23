@@ -17,6 +17,8 @@ public class bookoutAction  extends ActionSupport{
 	private ArrayList bookoutList;
 	private String saleDate_s;
 	private String saleDate_e;
+	private String desc;
+	private String jingshou;
 	
 	public bookoutAction()
 	{
@@ -71,9 +73,33 @@ public class bookoutAction  extends ActionSupport{
 		this.saleDate_e = saleDate_e;
 	}
 	
+	public String getDesc() {
+		return desc;
+	}
+
+	public void setDesc(String desc) {
+		this.desc = desc;
+	}
+	
+	public String getJingshou() {
+		return jingshou;
+	}
+
+	public void setJingshou(String jingshou) {
+		this.jingshou = jingshou;
+	}
+	
 	public String addBookout()
 	{
-		if(bod.addBookout(this.bo)==1)
+		if(bod.addBookout(this.bo,this.jingshou,this.desc)==1)
+			return SUCCESS;
+		else
+			return ERROR;
+	}
+	
+	public String delBook()
+	{
+		if(bod.delBook(this.bo,this.desc,this.jingshou)==1)
 			return SUCCESS;
 		else
 			return ERROR;
@@ -90,6 +116,12 @@ public class bookoutAction  extends ActionSupport{
 	public String getBookouts()
 	{
 		this.bookoutList=bod.getBookoutList(this.b.getBookISBN(), this.b.getBookName(), String.valueOf(this.b.getPublisherID()), String.valueOf(this.b.getCategoryID()), this.saleDate_s, this.saleDate_e, this.b.getUnit());
+		return SUCCESS;
+	}
+	
+	public String getdelBook()
+	{
+		this.bookoutList=bod.getdelBook(this.b.getBookISBN(), this.b.getBookName(), String.valueOf(this.b.getPublisherID()), String.valueOf(this.b.getCategoryID()), this.saleDate_s, this.saleDate_e, this.b.getUnit());
 		return SUCCESS;
 	}
 

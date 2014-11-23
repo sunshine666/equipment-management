@@ -1,9 +1,9 @@
-<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=GBK" pageEncoding="GBK"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <html>
 <s:head />
   <body>
-  <h2><center><s:text name="pro.admin.selectbooktitle"/></center></h2>
+  <h2><center><s:text name="设备库存记录查询"/></center></h2>
   <center>
 <s:form action="getBookstoreList" namespace="/user" method="post">
 	<s:textfield key="pro.book.ISBN" name="b.bookISBN"></s:textfield>

@@ -10,11 +10,13 @@ public class Bookout {
 	private double allPrice;
 	private String operator;
 	private String unit;
+	private String jingshou;
+	private String deldesc;
 
 	public Bookout() {}
 
 	public Bookout(Bookstore book, String saleDate, int saleNum,
-			double allPrice, String operator, String unit) {
+			double allPrice, String operator, String unit,String jingshou,String deldesc) {
 
 
 		this.book = book;
@@ -23,6 +25,8 @@ public class Bookout {
 		this.allPrice = allPrice;
 		this.operator = operator;
 		this.unit = unit;
+		this.jingshou=jingshou;
+		this.deldesc=deldesc;
 	}
 	
 	public Bookstore getBook() {
@@ -73,5 +77,23 @@ public class Bookout {
 	public void setUnit(String unit) {
 		this.unit = unit;
 	}
+	
+	public String getDeldesc() {
+		return deldesc;
+	}
+
+	public void setDeldesc(String deldesc) {
+		this.deldesc = deldesc;
+	}
+	
+	public String getJingshou() {
+		return jingshou;
+	}
+
+	public void setJingshou(String jingshou) {
+		this.jingshou = jingshou;
+	}
+	
+	
 
 }

@@ -1,6 +1,19 @@
-<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=GBK" pageEncoding="GBK"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <html>
+<head>
+<style type="text/css">
+<!--
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	background-image: url(img/new.jpg);   
+}
+-->
+</style>
+
   <body>
 <center>
 <h2><s:text name="pro.admin.categorylist"/></h2>

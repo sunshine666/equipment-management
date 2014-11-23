@@ -19,6 +19,7 @@ public class bookinAction  extends ActionSupport{
 	private ArrayList bookinList;
 	private String buyDate_s;
 	private String buyDate_e;
+	private String jingshou;
 	
 	private List<File> upload;  
     // /多个上传文件的类型集合  
@@ -71,6 +72,14 @@ public class bookinAction  extends ActionSupport{
 
 	public void setBuyDate_e(String buyDate_e) {
 		this.buyDate_e = buyDate_e;
+	}
+	
+	public String getJingshou() {
+		return jingshou;
+	}
+
+	public void setJingshou(String jingshou) {
+		this.jingshou = jingshou;
 	}
 
 	//
@@ -141,7 +150,7 @@ public class bookinAction  extends ActionSupport{
 	        System.out.println(path);
 	        path=uploadFileName.get(0);
 	        System.out.println(path);
-	        if(bid.addBookin(this.bi,picture)==1)
+	        if(bid.addBookin(this.bi,picture,this.jingshou)==1)
 				return SUCCESS;
 			else
 				return ERROR;

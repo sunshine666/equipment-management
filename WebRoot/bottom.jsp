@@ -7,13 +7,16 @@ body {
 	margin-top: 0px;
 	margin-right: 0px;
 	margin-bottom: 0px;
-	background-image: url(img/z.jpg);   
+	background-image: url(img/z3.jpg);   
 }
 -->
 </style>
 <link href="css/css.css" rel="stylesheet" type="text/css">
 <body>
+<center>
 <table width="778" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+  </tr>
   <tr>
     <td width="17%" align="right" style="color:#3399FF"><s:text name="pro.user.logintype" />：</td>
     <td width="10%" align="left">
@@ -25,7 +28,6 @@ body {
     </td>
     <td width="16%" align="right" style="color:#3399FF"><s:text name="pro.user.loginname" />：</td>
     <td width="11%" align="left"><b><s:property value="#session.loginname" /></b></td>
-    <td width="3%" align="left"><b><s:property value="#session.unit" /></b></td>
     <td width="15%" align="right" style="color:#3399FF"><s:text name="pro.user.logintime" />：</td>
     <td width="21%" align="left">
     <b><s:property value="#session.loginTime" /></b></td>
@@ -33,5 +35,6 @@ body {
 	<s:text name="pro.user.exit" /></a></td>
   </tr>
 </table>
+</center>
   </body>
 </html>

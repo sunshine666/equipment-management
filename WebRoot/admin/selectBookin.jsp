@@ -1,9 +1,9 @@
-<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=GBK" pageEncoding="GBK"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <html>
 <s:head />
   <body>
-  <h2><center><s:text name="pro.admin.selectbooktitle"/></center></h2>
+  <h2><center><s:text name="添加设备记录查询"/></center></h2>
   <center>
 <s:form action="getBookinList" namespace="/admin" method="post">
 	<s:textfield key="pro.book.ISBN" name="b.bookISBN"></s:textfield>
@@ -16,14 +16,8 @@
 	emptyOption="true"  
 	listKey="key" listValue="value">
 	</s:select>
-	<s:date
-	name="buyDate_s" 
-	format="yyyy-MM-dd"
-    ></s:date>
-	<s:date
-	name="buyDate_e" 
-	format="yyyy-MM-dd"
-    ></s:date>
+	<s:textfield name="buyDate_s" key="起始日期"/>
+	<s:textfield name="buyDate_e" key="结束日期"/>
     <input type="hidden" value="<% out.print(session.getAttribute("unit")); %>" name="b.unit">
 <s:submit name="submit" key="pro.user.btn"></s:submit>
 </s:form>

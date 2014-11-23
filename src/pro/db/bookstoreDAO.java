@@ -37,7 +37,7 @@ public class bookstoreDAO
 		try
 		{	
 			state=conn.createStatement();
-			rs=state.executeQuery("select * from bookstore where bookISBN='"+ISBN+"'"+" and unit='"+unit+"'");
+			rs=state.executeQuery("select * from bookstore where bookISBN='"+ISBN+"'");
 			if(rs.next())
 			{
 				b.setBookISBN(rs.getString("bookISBN"));
@@ -71,18 +71,23 @@ public class bookstoreDAO
 	return b; 		
 	}
 	
-	public ArrayList getBookstoreList(String bookISBN,String bookName,String publisherID,String categoryID,String unit)
+	public ArrayList getBookstoreList(String bookISBN,String bookName,String publisherID,String categoryID,String unit,String role,String author)
 	{
 		ArrayList c=new ArrayList();
+		System.out.println();
+		int count=Integer.parseInt(role);
 
 		String wheresql="";
 		String sql1="1=1";
 		String sql2="1=1";
 		String sql3="1=1";
 		String sql4="1=1";
+		String sqll="1=1";
 
 		if(bookISBN!=null && !bookISBN.equals(""))
 			sql1="bookISBN='"+bookISBN+"'";
+		if(author!=null && !author.equals(""))
+			sql1="author='"+author+"'";
 		if(bookName!=null && !bookName.equals(""))
 			sql2="bookName like '"+bookName+"'";
 		if(publisherID!=null && !publisherID.equals("") && !publisherID.equals("0"))
@@ -94,7 +99,15 @@ public class bookstoreDAO
 		try
 		{	
 			state=conn.createStatement();
-			rs=state.executeQuery("select * from bookstore"+wheresql+" and unit='"+unit+"'");
+			rs=state.executeQuery("select * from bookstore"+wheresql);
+			if(count==1)
+			{
+				rs=state.executeQuery("select * from bookstore"+wheresql);
+			}
+			else
+			{
+				rs=state.executeQuery("select * from bookstore"+wheresql+" and unit='"+unit+"'");
+			}
 			while(rs.next())
 			{		
 				Bookstore b=new Bookstore();
@@ -139,9 +152,9 @@ public class bookstoreDAO
 				state=conn.createStatement();
 				int i=Integer.parseInt(status);
 				if(i==0)
-				    jg=state.executeUpdate("update bookstore set status=1 where bookISBN='"+id+"' and unit='"+unit+"'");
+				    jg=state.executeUpdate("update bookstore set status=1 where bookISBN='"+id+"'");
 				else if(i==1)
-					jg=state.executeUpdate("update bookstore set status=0 where bookISBN='"+id+"' and unit='"+unit+"'");	
+					jg=state.executeUpdate("update bookstore set status=0 where bookISBN='"+id+"'");	
 	
 			}
 			catch(SQLException e)

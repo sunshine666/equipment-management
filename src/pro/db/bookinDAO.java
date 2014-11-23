@@ -32,7 +32,7 @@ public class bookinDAO
 		}
 	}
 	
-    public int addBookin(Bookin b,String picadr)
+    public int addBookin(Bookin b,String picadr,String jingshou)
 	{
 			int jg=0;
 			int NowNum=0;
@@ -72,12 +72,13 @@ public class bookinDAO
 					pstate1.close();
 				}
 				
-				pstate2=conn.prepareStatement("insert into bookin (bookISBN,buyDate,buyNum,operator,unit) values (?,?,?,?,?)");
+				pstate2=conn.prepareStatement("insert into bookin (bookISBN,buyDate,buyNum,operator,unit,jingshou) values (?,?,?,?,?,?)");
 				pstate2.setString(1, b.getBook().getBookISBN());
 				pstate2.setString(2, b.getBuyDate());
 				pstate2.setInt(3, b.getBuyNum());
 				pstate2.setString(4, b.getOperator());
 				pstate2.setString(5, b.getUnit());
+				pstate2.setString(6, jingshou);
 				
 				jg=pstate2.executeUpdate();				
 			}
@@ -116,6 +117,7 @@ public class bookinDAO
 			String sql3="1=1";
 			String sql4="1=1";
 			String sql5=" where 1=1";
+			System.out.println(" where buyDate >="+buyDate_s+" and buyDate<="+buyDate_e);
 			if(bookISBN!=null && !bookISBN.equals(""))
 				sql1="bookISBN='"+bookISBN+"'";
 			if(bookName!=null && !bookName.equals(""))
@@ -125,7 +127,7 @@ public class bookinDAO
 			if(categoryID!=null && !categoryID.equals("") && !categoryID.equals("0"))
 				sql4="categoryID="+categoryID;
 			if(buyDate_s!=null && !buyDate_s.equals("") && buyDate_e!=null && !buyDate_e.equals(""))
-				sql5=" where buyDate >="+buyDate_s+" and buyDate<="+buyDate_e;
+				sql5=" where buyDate >='"+buyDate_s+"' and buyDate<='"+buyDate_e+"'";
 			wheresql=" where "+sql1+" and "+sql2+" and "+sql3+" and "+sql4;
 			
 			
@@ -142,9 +144,7 @@ public class bookinDAO
 				state2=conn.createStatement();
 				
 				System.out.println("select * from bookin "+sql5+" and bookISBN in "+firstList);
-				
-				rs2=state2.executeQuery("select * from bookin "+sql5+" and bookISBN in "+firstList+" and unit='"+unit+"'");
-				
+				rs2=state2.executeQuery("select * from bookin "+sql5+" and bookISBN in "+firstList);
 				bookstoreDAO bd=new bookstoreDAO();
 				while(rs2.next())
 				{
@@ -153,6 +153,7 @@ public class bookinDAO
 					bi.setBuyDate(rs2.getString("buyDate"));
 					bi.setBuyNum(rs2.getInt("buyNum"));
 					bi.setOperator(rs2.getString("operator"));
+					bi.setJingshou(rs2.getString("jingshou"));
 					c.add(bi);
 				}
 

@@ -1,4 +1,4 @@
-<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=GBK" pageEncoding="GBK"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <html><style type="text/css">
 <!--
@@ -13,27 +13,35 @@ body {
 <link href="../css/css.css" rel="stylesheet" type="text/css">
   <body>
 
-<table width="778" border="0" cellspacing="0" cellpadding="0" align="center">
+<table width="1078" border="1"  align="center" cellpadding="0" cellspacing="0">
   <tr>
-    <td height="88" colspan="10"><img src="../img/logo3.gif" width="776" border="0"/></td>
+    <td height="70" colspan="11"><img src="../img/logo3.gif" width="1077" border="0"/></td>
   </tr>
   <tr>
-    <td width="13%" align="center">
+    <td width="9%" align="center">
 	<a href="editPwd.action" target="middleFrame">
 	<s:text name="pro.user.editpwd" /></a>
 	</td>
-    <td width="14%" align="center"><a href='<s:url action="userList" namespace="/admin" />' target="middleFrame">
+    <td width="9%" align="center"><a href='<s:url action="userList" namespace="/admin" />' target="middleFrame">
     <s:text name="pro.admin.usermanager" /></a></td>
     <s:hidden name="unit" value="#session.unit"></s:hidden>
-    <td width="14%" align="center"><a href='<s:url action="publisherList" namespace="/admin" />' target="middleFrame">
+    <td width="9%" align="center"><a href='<s:url action="publisherList" namespace="/admin" />' target="middleFrame">
     <s:text name="pro.admin.publishermanager" /></a></td>
-    <td width="14%" align="center"><a href='<s:url action="categoryList" namespace="/admin" />' target="middleFrame">
+    <td width="9%" align="center"><a href='<s:url action="categoryList" namespace="/admin" />' target="middleFrame">
     <s:text name="pro.admin.categorymanager" /></a></td>
-    <td width="15%" align="center"><a href="selectBookin.action" target="middleFrame">
+    <td width="9%" align="center"><a href="addBookin.action" target="middleFrame">
+    <s:text name="添加设备" /></a></td>
+    <td width="9%" align="center"><a href="addBookout.action" target="middleFrame">
+    <s:text name="设备修改" /></a></td>
+    <td width="9%" align="center"><a href="delBook.jsp" target="middleFrame">
+    <s:text name="设备报废" /></a></td>
+    <td width="9%" align="center"><a href="selectBook.jsp" target="middleFrame">
+    <s:text name="报废查询" /></a></td>
+    <td width="9%" align="center"><a href="selectBookin.action" target="middleFrame">
     <s:text name="pro.admin.selectbookin" /></a></td>
-    <td width="16%" align="center"><a href="selectBookout.action" target="middleFrame">
+    <td width="9%" align="center"><a href="selectBookout.action" target="middleFrame">
     <s:text name="pro.admin.selectbookout" /></a></td>
-    <td width="14%" align="center"><a href="selectBookstore.action" target="middleFrame">
+    <td width="9%" align="center"><a href="selectBookstore.action" target="middleFrame">
     <s:text name="pro.admin.selectbookstore" /></a></td>
 
   </tr>

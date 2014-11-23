@@ -32,6 +32,7 @@ public class publisherDAO
     public int addPublisher(Publisher p)
 	{
 			int jg=0;
+			System.out.println(p.getName()+"!!!");
 			try
 			{	
 				state=conn.createStatement();

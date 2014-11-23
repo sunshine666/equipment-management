@@ -1,16 +1,40 @@
-<%@ page language="java"  pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=GBK" pageEncoding="GBK"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <html>
-  <head>   
-    <title><s:text name="pro.login.loginTitle"/></title>
-  </head>
-  <body>
-  <h3><center><s:text name="pro.login.loginTitle" /></center></h3>
-  <center><a href='new.jsp'>ç‚¹å‡»æ³¨å†Œ</a></center>
+  <style type="text/css">
+<!--
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	background-image: url(img/new3.jpg);    
+}
+-->
+</style>
+<center>
+<table border="0">
+<tr>
+<td> </td>
+</tr>
+<tr>
+<td> </td>
+</tr>
+<tr>
+<td> </td>
+</tr>
+<tr>
+<td> </td>
+</tr>
+</table>
+</center>
+  <h1><center><s:text name="pro.login.loginTitle" /></center></h1>
+  <!--<center><a href='new.jsp'>µã»÷×¢²á</a></center>-->
   <center>
-<s:form action="checkLogin" namespace="/sys" >
-<s:textfield name="loginname" key="pro.login.loginName" cssStyle="width:100"></s:textfield>
-<s:password name="loginpwd" key="pro.login.loginPwd" cssStyle="width:100"></s:password>
+  <h2><center><s:text name="ÄãºÃ£¬ÇëÊäÈëÐÅÏ¢" /></center></h2>
+<s:form  action="checkLogin" namespace="/sys" >
+<s:textfield  name="loginname" key="pro.login.loginName" cssStyle="width:120" ></s:textfield>
+<s:password name="loginpwd" key="pro.login.loginPwd" cssStyle="width:120"></s:password>
 <s:submit name="submit" key="pro.user.btn"></s:submit>
 </s:form></center>
 <center><s:include value="/changeLocale.jsp"/></center>

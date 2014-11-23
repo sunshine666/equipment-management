@@ -1,4 +1,4 @@
-<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=GBK" pageEncoding="GBK"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <html><style type="text/css">
 <!--
@@ -13,20 +13,18 @@ body {
 <link href="../css/css.css" rel="stylesheet" type="text/css">
   <body>
 
-<table width="778" border="0" cellspacing="0" cellpadding="0" align="center">
+<table width="1078" border="0" cellspacing="0" cellpadding="0" align="center">
   <tr>
-    <td height="88" colspan="10"><img src="../img/logo3.gif" width="776" border="0"/></td>
+    <td height="88" colspan="10"><img src="../img/logo3.gif" width="1076" border="0"/></td>
   </tr>
   <tr>
-    <td width="20%" align="center">&nbsp;</td>
-    <td width="20%" align="center">
+    <td width="25%" align="center">
 	<a href="editPwd.action" target="middleFrame"><s:text name="pro.user.editpwd" /></a>
 	</td>
-    <td width="20%" align="center"><a href="addBookin.action" target="middleFrame"><s:text name="pro.bookin" /></a></td>
-    <td width="20%" align="center"><a href="addBookout.action" target="middleFrame"><s:text name="pro.bookout" /></a></td>
-    <td width="20%" align="center">&nbsp;</td>
-    <td width="24%" align="center"><a href="selectBookstore.action" target="middleFrame">
-    <s:text name="pro.admin.selectbookstore" /></a></td>
+   <!--<td width="20%" align="center"><a href="addBookin.action" target="middleFrame"><s:text name="pro.bookin" /></a></td>--> 
+    <!-- <td width="20%" align="center"><a href="addBookout.action" target="middleFrame"><s:text name="pro.bookout" /></a></td>-->
+    <td width="25%" align="center"><a href="selectBookstore.action" target="middleFrame">
+    <s:text name="Éè±¸²éÑ¯" /></a></td>
   </tr>
 </table>
 

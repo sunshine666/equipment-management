@@ -30,7 +30,7 @@ public class userDAO
 			}
 		}
 	}
-    public int addUser(User u,String unit)
+    public int addUser(User u)
 	{
 			int jg=0;
 			try
@@ -45,7 +45,7 @@ public class userDAO
 					pstate.setString(1,u.getName());
 					pstate.setString(2,u.getPwd());
 					pstate.setInt(3,u.getRoleID());
-					pstate.setString(4, unit);
+					pstate.setString(4, u.getUnit());
 			
 					jg=pstate.executeUpdate();					
 				}
@@ -76,7 +76,7 @@ public class userDAO
 			try
 			{	
 				state=conn.createStatement();
-				rs=state.executeQuery("select * from user where unit='"+unit+"'");
+				rs=state.executeQuery("select * from user");
 				while(rs.next())
 				{
 					User u=new User();

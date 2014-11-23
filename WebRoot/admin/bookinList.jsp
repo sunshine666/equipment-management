@@ -1,4 +1,4 @@
-<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=GBK" pageEncoding="GBK"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <html>
   <body>
@@ -14,7 +14,8 @@
 <td><s:text name="pro.book.saleprice" /></td>
 <td><s:text name="pro.book.innum" /></td>
 <td><s:text name="pro.book.buydate" /></td>
-<td><s:text name="pro.opterator" /></td>
+<td><s:text name="审批人" /></td>
+<td><s:text name="经手人" /></td>
 </tr>
 <s:set name="publisherMap" value="#session.publisherMap" />
 <s:set name="categoryMap" value="#session.categoryMap" />
@@ -41,6 +42,7 @@
 <td><s:property value="buyNum" /></td>
 <td><s:property value="buyDate" /></td>
 <td><s:property value="operator" /></td>
+<td><s:property value="jingshou" /></td>
 </tr>
 </s:iterator>
 </table>

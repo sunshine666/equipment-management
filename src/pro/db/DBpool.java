@@ -21,7 +21,7 @@ public class DBpool
 	            in.close(); 
 	            String url=p.getProperty("url"); 
 				Class.forName("com.mysql.jdbc.Driver").newInstance();
-				conn=DriverManager.getConnection(url,"root","");
+				conn=DriverManager.getConnection(url);
 				
 			}
 			catch(Exception e)

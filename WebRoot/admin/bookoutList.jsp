@@ -1,4 +1,4 @@
-<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=GBK" pageEncoding="GBK"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <html>
   <body>
@@ -8,14 +8,14 @@
 <tr>
 <td><s:text name="pro.book.ISBN" /></td>
 <td><s:text name="pro.book.name" /></td>
+<td><s:text name="修改项" /></td>
 <td><s:text name="pro.admin.publishername" /></td>
 <td><s:text name="pro.book.author" /></td>
 <td><s:text name="pro.book.category" /></td>
 <td><s:text name="pro.book.saleprice" /></td>
-<td><s:text name="pro.book.salenum" /></td>
-<td><s:text name="pro.book.allprice" /></td>
 <td><s:text name="pro.book.saledate" /></td>
-<td><s:text name="pro.opterator" /></td>
+<td><s:text name="审批人" /></td>
+<td><s:text name="经手人" /></td>
 </tr>
 <s:set name="publisherMap" value="#session.publisherMap" />
 <s:set name="categoryMap" value="#session.categoryMap" />
@@ -25,6 +25,7 @@
 <tr>
 <td><s:property value="book.bookISBN" /></td>
 <td><s:property value="book.bookName" /></td>
+<td><s:property value="deldesc" /></td>
 <td>
 	<s:iterator value="#publisherMap.keySet()" id="id">
 		<s:if test="#id==#pubID">
@@ -41,10 +42,9 @@
     </s:iterator>
 </td>
 <td><s:property value="book.salePrice" /></td>
-<td><s:property value="SaleNum" /></td>
-<td><s:property value="allPrice" /></td>
 <td><s:property value="saleDate" /></td>
 <td><s:property value="operator" /></td>
+<td><s:property value="jingshou" /></td>
 </tr>
 </s:iterator>
 </table>

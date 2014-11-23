@@ -83,7 +83,7 @@ public class bookstoreAction  extends ActionSupport{
 
 	public String getBookstores()
 	{
-		this.bookstoreList=bsd.getBookstoreList(this.b.getBookISBN(), this.b.getBookName(), String.valueOf(this.b.getPublisherID()), String.valueOf(this.b.getCategoryID()),this.b.getUnit());
+		this.bookstoreList=bsd.getBookstoreList(this.b.getBookISBN(), this.b.getBookName(), String.valueOf(this.b.getPublisherID()), String.valueOf(this.b.getCategoryID()),this.b.getUnit(),ActionContext.getContext().getSession().get("roleId").toString(),this.b.getAuthor());
 		return SUCCESS;
 	}
 	
