@@ -105,6 +105,14 @@ public class bookoutAction  extends ActionSupport{
 			return ERROR;
 	}
 	
+	public String delBook1()
+	{
+		if(bod.delBook(this.bo,this.desc,this.jingshou)==1)
+			return SUCCESS;
+		else
+			return ERROR;
+	}
+	
 	public String getBook()
 	{
 		this.b=bsd.getBookByISBN(this.bookISBN,ActionContext.getContext().getSession().get("unit").toString());
