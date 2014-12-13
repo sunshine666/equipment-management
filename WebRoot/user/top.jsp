@@ -21,9 +21,6 @@ body {
     <td width="25%" align="center">
 	<a href="editPwd.action" target="middleFrame"><s:text name="pro.user.editpwd" /></a>
 	</td>
-	    <td width="25%" align="center">
-	<a href="delBook.jsp" target="middleFrame"><s:text name="Éè±¸±¨·ÏÉêÇë"/></a>
-	</td>
    <!--<td width="20%" align="center"><a href="addBookin.action" target="middleFrame"><s:text name="pro.bookin" /></a></td>--> 
     <!-- <td width="20%" align="center"><a href="addBookout.action" target="middleFrame"><s:text name="pro.bookout" /></a></td>-->
     <td width="25%" align="center"><a href="selectBookstore.action" target="middleFrame">

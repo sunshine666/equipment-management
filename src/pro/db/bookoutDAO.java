@@ -146,61 +146,6 @@ public class bookoutDAO
 	    return jg;	
     }
     
-    public int delBook1(Bookout b,String desc,String jingshou)
-    {
-		int jg=0;
-		int NowNum=0;
-		int Status=0;
-		try
-		{	
-			state1=conn.createStatement();
-			rs1=state1.executeQuery("select * from bookstore where bookISBN='"+b.getBook().getBookISBN()+"'");
-			if(rs1.next())
-				NowNum=rs1.getInt("NowNum");
-			Status=rs1.getInt("status");
-			if(Status==1)
-			{
-			pstate1=conn.prepareStatement("insert into delshop (ISBN,name,deldate,deldesc,operator,jingshou,st) values (?,?,?,?,?,?,?)");
-			pstate1.setString(1, b.getBook().getBookISBN());
-			pstate1.setString(2, b.getBook().getBookName());
-			pstate1.setString(3, b.getSaleDate());
-			pstate1.setString(4, desc);
-			pstate1.setString(5, b.getOperator());
-			pstate1.setString(6, jingshou);
-			pstate1.setInt(7, 0);
-			
-			pstate1.executeUpdate();
-			pstate2=conn.prepareStatement("update bookstore set NowNum=? where bookISBN=?");
-			pstate2.setInt(1, -1);
-			pstate2.setString(2, b.getBook().getBookISBN());
-
-			jg=pstate2.executeUpdate();
-			}
-			else
-				jg=0;
-		}
-		catch(SQLException e)
-		{
-			e.printStackTrace();
-		}
-		finally
-		{
-			try
-			{
-				rs1.close();
-				state1.close();
-				pstate1.close();	
-				pstate2.close();
-			}
-			catch(SQLException e)
-			{
-				e.printStackTrace();
-			}
-		}
-	
-	    return jg;	
-    }
-    
 	public ArrayList getBookoutList(String bookISBN,String bookName,String publisherID,String categoryID,String saleDate_s,String saleDate_e,String unit)
 	{
 		ArrayList c=new ArrayList();

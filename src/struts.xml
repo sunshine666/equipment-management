@@ -212,11 +212,6 @@
     		<result>/user/addBookout.jsp</result>
     	</action> 
     	
-    	<action name="delBook" class="pro.action.bookoutAction" method="delBook">
-    		<result>/success.html</result>
-    		<result name="input">/user/delBook.jsp</result>
-    	</action>  
-    	
     	<action name="*" class="pro.action.userAction" method="input">
     		<result name="input">{1}.jsp</result>
     	</action>   	   	
