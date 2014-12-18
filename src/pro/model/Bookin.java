@@ -38,8 +38,7 @@ public class Bookin {
 	}
 
 	public void setBuyDate(String buyDate) {
-		SimpleDateFormat tempDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); 
-		this.buyDate = tempDate.format(new java.util.Date());
+		this.buyDate = buyDate;
 	}
 
 	public int getBuyNum() {

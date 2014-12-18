@@ -105,6 +105,17 @@ public class bookoutAction  extends ActionSupport{
 			return ERROR;
 	}
 	
+	public String delBook1()
+	{
+		if(bod.delBook1(this.bo,this.desc,this.jingshou)==1)
+		{
+			System.out.println("wawa");
+			return SUCCESS;
+		}
+		else
+			return ERROR;
+	}
+	
 	public String getBook()
 	{
 		this.b=bsd.getBookByISBN(this.bookISBN,ActionContext.getContext().getSession().get("unit").toString());
@@ -123,6 +134,21 @@ public class bookoutAction  extends ActionSupport{
 	{
 		this.bookoutList=bod.getdelBook(this.b.getBookISBN(), this.b.getBookName(), String.valueOf(this.b.getPublisherID()), String.valueOf(this.b.getCategoryID()), this.saleDate_s, this.saleDate_e, this.b.getUnit());
 		return SUCCESS;
+	}
+	
+	public String getdelBook1()
+	{
+		System.out.println("-aaa-");
+		this.bookoutList=bod.getdelBook1();
+		return SUCCESS;
+	}
+	
+	public String queren()
+	{
+		if(bod.queren(this.bookISBN))
+			return SUCCESS;
+		else
+			return ERROR;
 	}
 
 }

@@ -33,8 +33,8 @@ body {
     <s:text name="添加设备" /></a></td>
     <td width="9%" align="center"><a href="addBookout.action" target="middleFrame">
     <s:text name="设备修改" /></a></td>
-    <td width="9%" align="center"><a href="delBook.jsp" target="middleFrame">
-    <s:text name="设备报废" /></a></td>
+    <td width="9%" align="center"><a href='<s:url action="delBook1" namespace="/admin" />' target="middleFrame">
+    <s:text name="报废审核" /></a></td>
     <td width="9%" align="center"><a href="selectBook.jsp" target="middleFrame">
     <s:text name="报废查询" /></a></td>
     <td width="9%" align="center"><a href="selectBookin.action" target="middleFrame">

@@ -1,6 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=GBK" pageEncoding="GBK"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <html>
+  <style type="text/css">
+<!--
+body {
+	background-image: url(../img/back1.jpg);    
+}
+-->
+</style>
 <body>
 <h3><center><s:text name="pro.user.editpwd" /></center></h3>
 <center>

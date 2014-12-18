@@ -1,43 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=GBK" pageEncoding="GBK"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
-<html>
-  <style type="text/css">
-<!--
-body {
-	margin-left: 0px;
-	margin-top: 0px;
-	margin-right: 0px;
-	margin-bottom: 0px;
-	background-image: url(img/new3.jpg);    
-}
--->
-</style>
-<center>
-<table border="0">
-<tr>
-<td> </td>
-</tr>
-<tr>
-<td> </td>
-</tr>
-<tr>
-<td> </td>
-</tr>
-<tr>
-<td> </td>
-</tr>
-</table>
-</center>
-  <h1><center><s:text name="pro.login.loginTitle" /></center></h1>
-  <!--<center><a href='new.jsp'>点击注册</a></center>-->
-  <center>
-  <h2><center><s:text name="你好，请输入信息" /></center></h2>
-<s:form  action="checkLogin" namespace="/sys" >
-<s:textfield  name="loginname" key="pro.login.loginName" cssStyle="width:120" ></s:textfield>
-<s:password name="loginpwd" key="pro.login.loginPwd" cssStyle="width:120"></s:password>
-<s:submit name="submit" key="pro.user.btn"></s:submit>
-</s:form></center>
-<center><s:include value="/changeLocale.jsp"/></center>
-  </body>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="images/login.css" rel="stylesheet" type="text/css" />
+
+
+</head>
+
+<body>
+<div id="wrap">
+	<div id="header"> </div>
+    <div id="content-wrap">
+    	<div class="space"> </div>
+   	  <s:form  action="checkLogin" namespace="/sys" ><div class="content">
+        <div class="field"><label>账　户：</label><input class="username" name="loginname" type="text" /></div>
+		<div class="field"><label>密　码：</label><input class="password" name="loginpwd" type="password" /><br /></div>
+        <div class="btn"><input name="" type="submit" class="login-btn" value="" /></div>
+      </div></s:form>
+    </div>
+    <div id="footer"> </div>
+</div>
+</body>
 </html>
 

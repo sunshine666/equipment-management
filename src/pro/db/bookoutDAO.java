@@ -1,6 +1,7 @@
 package pro.db;
 import pro.model.Bookout;
 import java.sql.*;
+
 import javax.naming.*;
 import java.util.*;
 
@@ -52,18 +53,21 @@ public class bookoutDAO
 				pstate1.setInt(3, 1);
 				pstate1.setDouble(4, b.getAllPrice());
 				pstate1.setString(5, b.getOperator());
-				pstate1.setString(6, b.getUnit());
+				pstate1.setString(6, b.getBook().getUnit());
 				pstate1.setString(7, jingshou);
 				pstate1.setString(8, desc);
 				
 				pstate1.executeUpdate();
-				pstate2=conn.prepareStatement("update bookstore set author=?,bookDesc=?,unit=?,categoryID=?,publisherID=? where bookISBN=?");
+				pstate2=conn.prepareStatement("update bookstore set author=?,bookDesccs=?,bookDescid=?,bookDescrq=?,bookDescxh=?,unit=?,categoryID=?,publisherID=? where bookISBN=?");
 				pstate2.setString(1, b.getBook().getAuthor());
-				pstate2.setString(2, b.getBook().getBookDesc());
-				pstate2.setString(3, b.getUnit());
-				pstate2.setInt(4, b.getBook().getCategoryID());
-				pstate2.setInt(5, b.getBook().getPublisherID());
-				pstate2.setString(6, b.getBook().getBookISBN());
+				pstate2.setString(2, b.getBook().getBookDesccs());
+				pstate2.setString(3, b.getBook().getBookDescid());
+				pstate2.setString(4, b.getBook().getBookDescrq());
+				pstate2.setString(5, b.getBook().getBookDescxh());
+				pstate2.setString(6, b.getBook().getUnit());
+				pstate2.setInt(7, b.getBook().getCategoryID());
+				pstate2.setInt(8, b.getBook().getPublisherID());
+				pstate2.setString(9, b.getBook().getBookISBN());
 
 				jg=pstate2.executeUpdate();
 				}
@@ -146,9 +150,66 @@ public class bookoutDAO
 	    return jg;	
     }
     
+    public int delBook1(Bookout b,String desc,String jingshou)
+    {
+		int jg=0;
+		int NowNum=0;
+		int Status=0;
+		try
+		{	
+			state1=conn.createStatement();
+			rs1=state1.executeQuery("select * from bookstore where bookISBN='"+b.getBook().getBookISBN()+"'");
+			if(rs1.next())
+				NowNum=rs1.getInt("NowNum");
+			Status=rs1.getInt("status");
+			if(Status==1)
+			{
+			pstate1=conn.prepareStatement("insert into delshop (ISBN,name,deldate,deldesc,operator,jingshou,st) values (?,?,?,?,?,?,?)");
+			pstate1.setString(1, b.getBook().getBookISBN());
+			pstate1.setString(2, b.getBook().getBookName());
+			pstate1.setString(3, b.getSaleDate());
+			pstate1.setString(4, desc);
+			pstate1.setString(5, b.getOperator());
+			pstate1.setString(6, jingshou);
+			pstate1.setInt(7, 0);
+			pstate1.executeUpdate();
+			
+			pstate2=conn.prepareStatement("update bookstore set NowNum=? where bookISBN=?");
+			pstate2.setInt(1, 0);
+			pstate2.setString(2, b.getBook().getBookISBN());
+
+			jg=pstate2.executeUpdate();
+			System.out.println(jg);
+			}
+			else
+				jg=0;
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+		finally
+		{
+			try
+			{
+				rs1.close();
+				state1.close();
+				pstate1.close();
+				pstate2.close();
+			}
+			catch(SQLException e)
+			{
+				e.printStackTrace();
+			}
+		}
+	
+	    return jg;	
+    }
+    
 	public ArrayList getBookoutList(String bookISBN,String bookName,String publisherID,String categoryID,String saleDate_s,String saleDate_e,String unit)
 	{
 		ArrayList c=new ArrayList();
+		System.out.println(saleDate_s);
 		/*
 		select bi.buyID bi.buyDate bi.buyNum bs.bookISBN bs.bookName bs.bookDesc bs.publisherID bs.author bs.categoryID bs.salePrice 
 		*/
@@ -189,6 +250,7 @@ public class bookoutDAO
 			{
 				Bookout bo=new Bookout();
 				bo.setBook(bd.getBookByISBN(rs2.getString("bookISBN"), unit));
+				System.out.println(rs2.getString("saleDate"));
 				bo.setSaleDate(rs2.getString("saleDate"));
 				bo.setSaleNum(rs2.getInt("SaleNum"));
 				bo.setOperator(rs2.getString("operator"));
@@ -212,6 +274,53 @@ public class bookoutDAO
 				rs2.close();
 				state1.close();	
 				state2.close();
+			}
+			catch(SQLException e)
+			{
+				e.printStackTrace();
+			}
+		}
+	
+	return c; 		
+	}
+	
+	public ArrayList getdelBook1()
+	{
+		ArrayList c=new ArrayList();
+		/*
+		select bi.buyID bi.buyDate bi.buyNum bs.bookISBN bs.bookName bs.bookDesc bs.publisherID bs.author bs.categoryID bs.salePrice 
+		*/
+       
+		
+		try
+		{	
+			state1=conn.createStatement();
+			rs1=state1.executeQuery("select * from delshop where st=0");
+			bookstoreDAO bd=new bookstoreDAO();
+			while(rs1.next())
+			{
+				System.out.println("-bbb-");
+				Bookout bo=new Bookout();
+				bo.setBook(bd.getBookByISBN(rs1.getString("ISBN"), "1"));
+				bo.setSaleDate(rs1.getString("deldate"));
+				bo.setJingshou(rs1.getString("jingshou"));
+				bo.setDeldesc(rs1.getString("deldesc"));
+				bo.setOperator(rs1.getString("operator"));
+				
+				c.add(bo);
+			}
+
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+		finally
+		{
+			try
+			{
+				rs1.close();
+				state1.close();	
 			}
 			catch(SQLException e)
 			{
@@ -259,8 +368,8 @@ public class bookoutDAO
 			firstList=firstList.substring(0, firstList.length()-1);
 			firstList=firstList+")";
 			state2=conn.createStatement();
-			System.out.println("select * from delshop "+sql5+" and ISBN in "+firstList);
-			rs2=state2.executeQuery("select * from delshop "+sql5+" and ISBN in "+firstList);
+			System.out.println("select * from delshop "+sql5+" and st=1 and ISBN in "+firstList);
+			rs2=state2.executeQuery("select * from delshop "+sql5+" and st=1 and ISBN in "+firstList);
 			
 			bookstoreDAO bd=new bookstoreDAO();
 			while(rs2.next())
@@ -296,6 +405,42 @@ public class bookoutDAO
 		}
 	
 	return c; 		
+	}
+	
+	public boolean queren(String id)
+	{
+			int jg=0;
+			try
+			{	
+				state1=conn.createStatement();
+				state1.executeUpdate("update delshop set st=1 where ISBN='"+id+"'");	
+				pstate2=conn.prepareStatement("update bookstore set NowNum=? where bookISBN=?");
+				pstate2.setInt(1, -1);
+				pstate2.setString(2, id);
+				jg=pstate2.executeUpdate();
+	
+			}
+			catch(SQLException e)
+			{
+				e.printStackTrace();
+			}
+			finally
+			{
+				try
+				{	
+					state1.close();	
+					pstate2.close();
+				}
+				catch(SQLException e)
+				{
+					e.printStackTrace();
+				}
+			}
+		
+		    if(jg>0)		
+		    	return true;
+		    else
+		    	return false;
 	}
 
 }

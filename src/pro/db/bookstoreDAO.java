@@ -42,13 +42,17 @@ public class bookstoreDAO
 			{
 				b.setBookISBN(rs.getString("bookISBN"));
 				b.setBookName(rs.getString("bookName"));
-				b.setBookDesc(rs.getString("bookDesc"));
+				b.setBookDesccs(rs.getString("bookDesccs"));
+				b.setBookDescid(rs.getString("bookDescid"));
+				b.setBookDescrq(rs.getString("bookDescrq"));
+				b.setBookDescxh(rs.getString("bookDescxh"));
 				b.setAuthor(rs.getString("author"));
 				b.setCategoryID(rs.getInt("categoryID"));
 				b.setPublisherID(rs.getInt("publisherID"));
 				b.setNowNum(rs.getInt("NowNum"));
 				b.setSalePrice(rs.getDouble("salePrice"));
 				b.setStatus(rs.getInt("status"));
+				b.setUnit(rs.getString("unit"));
 			}
 		}
 		catch(SQLException e)
@@ -113,7 +117,10 @@ public class bookstoreDAO
 				Bookstore b=new Bookstore();
 				b.setBookISBN(rs.getString("bookISBN"));
 				b.setBookName(rs.getString("bookName"));
-				b.setBookDesc(rs.getString("bookDesc"));
+				b.setBookDesccs(rs.getString("bookDesccs"));
+				b.setBookDescid(rs.getString("bookDescid"));
+				b.setBookDescrq(rs.getString("bookDescrq"));
+				b.setBookDescxh(rs.getString("bookDescxh"));
 				b.setAuthor(rs.getString("author"));
 				b.setCategoryID(rs.getInt("categoryID"));
 				b.setPublisherID(rs.getInt("publisherID"));

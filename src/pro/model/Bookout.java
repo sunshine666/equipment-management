@@ -42,8 +42,7 @@ public class Bookout {
 	}
 
 	public void setSaleDate(String saleDate) {
-		SimpleDateFormat tempDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); 
-		this.saleDate = tempDate.format(new java.util.Date());
+		this.saleDate = saleDate;
 	}
 
 	public int getSaleNum() {

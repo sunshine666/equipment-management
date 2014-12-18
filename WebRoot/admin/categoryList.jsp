@@ -2,45 +2,54 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <html>
 <head>
+<link href="../images/style.css" rel="stylesheet" type="text/css" />
 <style type="text/css">
-<!--
 body {
-	margin-left: 0px;
-	margin-top: 0px;
-	margin-right: 0px;
-	margin-bottom: 0px;
-	background-image: url(img/new.jpg);   
+	background:#FFF
 }
--->
 </style>
+</head>
 
   <body>
-<center>
-<h2><s:text name="pro.admin.categorylist"/></h2>
-<table border="1">
-<tr>
-<td><s:text name="pro.admin.categoryid"/></td>
-<td><s:text name="pro.admin.categoryname"/></td>
-<td><s:text name="pro.admin.categorydesc"/></td>
-<td><s:text name="pro.admin.editcategory"/></td>
-</tr>
+<div id="contentWrap">
+<div class="pageTitle"></div>
+<div class="pageColumn">
+<div class="pageButton"></div>
+<table>
+       <thead>
+      <th width=""><s:text name="pro.admin.categoryid"/></th>
+      <th width=""><s:text name="pro.admin.categoryname"/></th>
+      <th width=""><s:text name="pro.admin.categorydesc"/></th>
+      <th width=""><s:text name="pro.admin.editcategory"/></th>
+       </thead>
+<tbody>
 <s:iterator value="categoryList">
-<tr>
+<tr class=" trLight">
 <td><s:property value="id" /></td>
 <td><s:property value="name" /></td>
 <td><s:property value="desc" /></td>
 <td><a href='<s:url action="getCategory" namespace="/admin">
 <s:param name="id" value="id"></s:param>
-</s:url>'><s:text name="pro.admin.editcategory"/></a>
+</s:url>'><s:text name="点击修改"/></a>
 </td>
 </tr>
 </s:iterator>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>点击添加新类别：</td>
+<td><a href='addCategory.action'><s:text name="pro.admin.addcategory"/></a></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
 </table>
-</center>
-<br>
-<center>
-<a href='addCategory.action'><s:text name="pro.admin.addcategory"/></a>
-</center>
+
+</div></div>
 
   </body>
 </html>

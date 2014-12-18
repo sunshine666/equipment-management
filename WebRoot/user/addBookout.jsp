@@ -14,7 +14,12 @@
 <s:hidden name="bo.allPrice" key="pro.book.allprice" readonly="true" id="zj"></s:hidden>
 <input type="hidden" value="<% out.print(session.getAttribute("loginname")); %>" name="bo.operator">
 <input type="hidden" value="<% out.print(session.getAttribute("unit")); %>" name="bo.unit">
-<s:hidden name="bo.saleDate" value=""></s:hidden>
+<tr>
+<td>日期:</td>
+<td>
+      <input id="d13" name="bo.saleDate" type="text"/>
+     <img onclick="WdatePicker({el:$dp.$('d13')})" src="../My97DatePicker/skin/datePicker.gif" width="16" height="22" align="absmiddle">
+    </td> </tr>
 <s:submit name="submit" key="pro.user.btn"></s:submit>
 </s:form></center>
   </body>

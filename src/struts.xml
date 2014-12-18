@@ -85,9 +85,11 @@
     		<result>/success.html</result>
     		<result name="input">/admin/addBookin.jsp</result>
     	</action>  
-    	<action name="delBook" class="pro.action.bookoutAction" method="delBook">
-    		<result>/success.html</result>
-    		<result name="input">/admin/delBook.jsp</result>
+    	<action name="delBook1" class="pro.action.bookoutAction" method="getdelBook1">
+    		<result>/admin/delBook1.jsp</result>
+    	</action>
+    	<action name="queren" class="pro.action.bookoutAction" method="queren">
+    		<result type="redirect">delBook1.action</result>
     	</action>  
    
     	<action name="addBookout" class="pro.action.bookoutAction" method="addBookout">
@@ -96,9 +98,6 @@
     	</action>
     	<action name="getBook" class="pro.action.bookoutAction" method="getBook">
     		<result>/admin/addBookout.jsp</result>
-    	</action> 
-    	<action name="getBook1" class="pro.action.bookoutAction" method="getBook">
-    		<result>/admin/delBook.jsp</result>
     	</action> 
         
         <!-- 类别管理 -->
@@ -209,8 +208,13 @@
     	</action>
     	
     	<action name="getBook" class="pro.action.bookoutAction" method="getBook">
-    		<result>/user/addBookout.jsp</result>
+    		<result>/user/delBook.jsp</result>
     	</action> 
+    	
+    	<action name="delBook" class="pro.action.bookoutAction" method="delBook1">
+    		<result>/success.html</result>
+    		<result name="input">/user/delBook.jsp</result>
+    	</action>  
     	
     	<action name="*" class="pro.action.userAction" method="input">
     		<result name="input">{1}.jsp</result>

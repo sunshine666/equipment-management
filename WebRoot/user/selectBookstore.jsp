@@ -1,7 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=GBK" pageEncoding="GBK"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <html>
-<s:head />
+<script type="text/javascript" src="../My97DatePicker/WdatePicker.js"></script>
+  <style type="text/css">
+<!--
+body {
+	background-image: url(../img/back1.jpg);    
+}
+-->
+</style>
   <body>
   <h2><center><s:text name="设备库存记录查询"/></center></h2>
   <center>

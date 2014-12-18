@@ -4,7 +4,10 @@ public class Bookstore {
 	
 	private String bookISBN;
 	private String bookName;
-	private String bookDesc;
+	private String bookDesccs;
+	private String bookDescid;
+	private String bookDescrq;
+	private String bookDescxh;
 	private int publisherID;
 	private String author;
 	private int categoryID;
@@ -16,11 +19,14 @@ public class Bookstore {
 
 	public Bookstore() {}
 
-	public Bookstore(String bookISBN,String bookName,String bookDesc,int publisherID,String author,int categoryID,double salePrice, int nowNum, int status,String unit,String picadr) {
+	public Bookstore(String bookISBN,String bookName,String bookDesccs,String bookDescid,String bookDescrq,String bookDescxh,int publisherID,String author,int categoryID,double salePrice, int nowNum, int status,String unit,String picadr) {
 		
 		this.bookISBN=bookISBN;
 		this.bookName=bookName;
-		this.bookDesc=bookDesc;
+		this.bookDesccs=bookDesccs;
+		this.bookDescid=bookDescid;
+		this.bookDescrq=bookDescrq;
+		this.bookDescxh=bookDescxh;
 		this.publisherID=publisherID;
 		this.author=author;
 		this.categoryID=categoryID;
@@ -47,12 +53,36 @@ public class Bookstore {
 		this.bookName = bookName;
 	}
 
-	public String getBookDesc() {
-		return bookDesc;
+	public String getBookDesccs() {
+		return bookDesccs;
 	}
 
-	public void setBookDesc(String bookDesc) {
-		this.bookDesc = bookDesc;
+	public void setBookDesccs(String bookDesccs) {
+		this.bookDesccs = bookDesccs;
+	}
+	
+	public String getBookDescid() {
+		return bookDescid;
+	}
+
+	public void setBookDescid(String bookDescid) {
+		this.bookDescid = bookDescid;
+	}
+	
+	public String getBookDescrq() {
+		return bookDescrq;
+	}
+
+	public void setBookDescrq(String bookDescrq) {
+		this.bookDescrq = bookDescrq;
+	}
+	
+	public String getBookDescxh() {
+		return bookDescxh;
+	}
+
+	public void setBookDescxh(String bookDescxh) {
+		this.bookDescxh = bookDescxh;
 	}
 
 	public int getPublisherID() {

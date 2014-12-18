@@ -55,18 +55,21 @@ public class bookinDAO
 				}
 				else
 				{
-					pstate1=conn.prepareStatement("insert into bookstore (bookISBN,bookName,bookDesc,publisherID,author,categoryID,salePrice,NowNum,status,unit,picadr) values (?,?,?,?,?,?,?,?,?,?,?)");
+					pstate1=conn.prepareStatement("insert into bookstore (bookISBN,bookName,bookDesccs,bookDescid,bookDescrq,bookDescxh,publisherID,author,categoryID,salePrice,NowNum,status,unit,picadr) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 					pstate1.setString(1, b.getBook().getBookISBN());	
 					pstate1.setString(2, b.getBook().getBookName());
-					pstate1.setString(3, b.getBook().getBookDesc());
-					pstate1.setInt(4, b.getBook().getPublisherID());
-					pstate1.setString(5, b.getBook().getAuthor());
-					pstate1.setInt(6, b.getBook().getCategoryID());
-					pstate1.setDouble(7, b.getBook().getSalePrice());
-					pstate1.setInt(8, b.getBuyNum());
-					pstate1.setInt(9, 1);
-					pstate1.setString(10, b.getUnit());
-					pstate1.setString(11, picadr);
+					pstate1.setString(3, b.getBook().getBookDesccs());
+					pstate1.setString(4, b.getBook().getBookDescid());
+					pstate1.setString(5, b.getBook().getBookDescrq());
+					pstate1.setString(6, b.getBook().getBookDescxh());
+					pstate1.setInt(7, b.getBook().getPublisherID());
+					pstate1.setString(8, b.getBook().getAuthor());
+					pstate1.setInt(9, b.getBook().getCategoryID());
+					pstate1.setDouble(10, b.getBook().getSalePrice());
+					pstate1.setInt(11, b.getBuyNum());
+					pstate1.setInt(12, 1);
+					pstate1.setString(13, b.getUnit());
+					pstate1.setString(14, picadr);
 					
 					pstate1.executeUpdate();
 					pstate1.close();

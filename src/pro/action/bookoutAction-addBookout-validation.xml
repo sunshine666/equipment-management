@@ -10,15 +10,5 @@
             <message key="pro.book.requiredISBN"></message>
         </field-validator> 
     </field>
-    <field name="bo.book.bookName"> 
-        <field-validator type="requiredstring" short-circuit="true"> 
-            <message key="pro.book.requiredName"></message>
-        </field-validator> 
-    </field>
-    <field name="bo.book.author"> 
-        <field-validator type="requiredstring" short-circuit="true"> 
-            <message key="pro.book.requiredAuthor"></message>
-        </field-validator> 
-    </field>
 
 </validators>

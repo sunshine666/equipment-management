@@ -1,9 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=GBK" pageEncoding="GBK"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <html>
-<s:head />
+<head>
+  <style type="text/css">
+<!--
+body {
+	background-image: url(../img/back1.jpg);    
+}
+-->
+</style>
+</head>
   <body>
-  <h2><center><s:text name="设备库存记录查询"/></center></h2>
+  <h2><center><s:text name="全部设备记录查询"/></center></h2>
   <center>
 <s:form action="getBookstoreList" namespace="/admin" method="post">
 	<s:textfield key="pro.book.ISBN" name="b.bookISBN"></s:textfield>
