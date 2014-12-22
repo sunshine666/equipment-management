@@ -17,7 +17,12 @@ body {
 <s:textfield name="bi.book.bookName" key="pro.book.name"></s:textfield>
 <s:textfield name="bi.book.bookDesccs" key="生产厂商" ></s:textfield>
 <s:textfield name="bi.book.bookDescid" key="出厂编号"></s:textfield>
-<s:textfield name="bi.book.bookDescrq" key="设备生产日期"></s:textfield>
+<tr>
+<td>设备生产日期:</td>
+<td>
+      <input id="d12" name="bi.book.bookDescrq" type="text"/>
+     <img onclick="WdatePicker({el:$dp.$('d12')})" src="../My97DatePicker/skin/datePicker.gif" width="16" height="22" align="absmiddle">
+    </td> </tr>
 <s:textfield name="bi.book.bookDescxh" key="设备型号"></s:textfield>
 <s:textfield name="bi.book.author" key="pro.book.author"></s:textfield>
 <s:select key="pro.book.publisher" name="bi.book.publisherID"  list="#session.publisherMap" listKey="key" listValue="value"></s:select>

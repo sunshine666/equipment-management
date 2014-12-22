@@ -43,13 +43,15 @@ $(function(){
         	<div class="nav-left fleft"></div>
             <li class="first">您好</li>
             <li><s:property value="#session.loginname" /></li>
-            <li><s:text name="pro.user.logintype" />：</li>
+            <li><s:text name="当前状态" />：</li>
             <li>
             <s:set name="roleId" value="#session.roleId" />
 		    <s:if test="#roleId == 1">
 		    <s:text name="pro.admin" /></s:if>
 		    <s:elseif test="#roleId == 2">
 		    <s:text name="pro.opterator" /></s:elseif>
+		    <s:elseif test="#roleId != 1&&#roleId != 2">
+		    <s:text name="请登陆->" /></s:elseif>
             </li>
             <div class="nav-right fleft"></div>
         </ul>
@@ -85,7 +87,7 @@ $(function(){
             	<ul>
                 	<li><a href="admin/selectBookin.action" target="right">添加记录</a></li>
                     <li><a href="admin/selectBookout.action" target="right">修改记录</a></li>
-                    <li><a href="admin/selectBookstore.action" target="right">设备记录</a></li>
+                    <li><a href="admin/selectBookstore1.action" target="right">设备记录</a></li>
                 </ul>
             </li>
         </ul>
@@ -95,7 +97,8 @@ $(function(){
         	<li class="subMenuTitle">功能列表</li>
             <li class="subMenu"><a href="user/editPwd.action" target="right">修改密码</a> </li>
             <li class="subMenu"><a href="user/delBook.jsp" target="right">设备报废申请</a></li>
-            <li class="subMenu"><a href="user/selectBookstore.action" target="right">设备查询</a></li>
+            <li class="subMenu"><a href="user/dellist.action" target="right">报废记录</a></li>
+            <li class="subMenu"><a href="user/selectBookstore1.action" target="right">设备查询</a></li>
         </ul>
     </s:elseif>
     </div>

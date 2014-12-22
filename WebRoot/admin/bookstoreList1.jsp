@@ -29,7 +29,6 @@ body {
 <th><s:text name="pro.book.category"/></th>
 <th><s:text name="pro.book.saleprice"/></th>
 <th><s:text name="pro.admin.nownum"/></th>
-<th><s:text name="修改信息"/></th>
 </thead>
 <tbody>
 <s:set name="publisherMap" value="#session.publisherMap" />
@@ -69,9 +68,6 @@ body {
 	已报废<s:property value="已报废"/>
 </s:if>
 </td>
-     <td><a href='<s:url action="getBook" namespace="/admin">
-    <s:param name="bookISBN" value="bookISBN"></s:param>
-    </s:url>'>修改</a></td>
 </tr>
 </s:iterator>
 <tr>
@@ -84,11 +80,8 @@ body {
 <td></td>
 <td></td>
 <td></td>
-<td></td>
-<td></td>
 <td>总价：</td>
 <td><s:property value="allprice"/></td>
-<td></td>
 <td></td>
 </tr>
 </tbody>

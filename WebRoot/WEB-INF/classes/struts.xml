@@ -73,6 +73,10 @@
     		<result>/admin/bookstoreList.jsp</result>
     	</action>
     	
+    	<action name="getBookstoreList1" class="pro.action.bookstoreAction" method="getBookstores">
+    		<result>/admin/bookstoreList1.jsp</result>
+    	</action>
+    	
     	<action name="getBookList" class="pro.action.bookoutAction" method="getdelBook">
     		<result>/admin/delbookList.jsp</result>
     	</action>
@@ -206,6 +210,9 @@
     	<action name="getBookstoreList" class="pro.action.bookstoreAction" method="getBookstores">
     		<result>/user/bookstoreList.jsp</result>
     	</action>
+    	<action name="getBookstoreList1" class="pro.action.bookstoreAction" method="getBookstores">
+    		<result>/user/bookstoreList1.jsp</result>
+    	</action>
     	
     	<action name="getBook" class="pro.action.bookoutAction" method="getBook">
     		<result>/user/delBook.jsp</result>
@@ -215,6 +222,14 @@
     		<result>/success.html</result>
     		<result name="input">/user/delBook.jsp</result>
     	</action>  
+    	
+    	<action name="dellist" class="pro.action.bookoutAction" method="getdellist">
+    		<result>/user/dellist.jsp</result>
+    	</action>
+    	
+    	<action name="shan" class="pro.action.bookoutAction" method="shan">
+    		<result type="redirect">dellist.action</result>
+    	</action>
     	
     	<action name="*" class="pro.action.userAction" method="input">
     		<result name="input">{1}.jsp</result>

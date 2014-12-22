@@ -107,13 +107,27 @@ public class bookoutAction  extends ActionSupport{
 	
 	public String delBook1()
 	{
-		if(bod.delBook1(this.bo,this.desc,this.jingshou)==1)
+		if(bod.delBook1(this.bo,this.desc,this.jingshou,ActionContext.getContext().getSession().get("loginname").toString())==1)
 		{
 			System.out.println("wawa");
 			return SUCCESS;
 		}
 		else
 			return ERROR;
+	}
+	
+	public String getdellist()
+	{
+		this.bookoutList=bod.getdellist(ActionContext.getContext().getSession().get("loginname").toString());
+		return SUCCESS;
+	}
+	
+	public String shan()
+	{
+		if(bod.shan(this.bookISBN))
+			return SUCCESS;
+		else
+		    return ERROR;
 	}
 	
 	public String getBook()

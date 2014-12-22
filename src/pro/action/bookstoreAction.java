@@ -11,10 +11,11 @@ public class bookstoreAction  extends ActionSupport{
 	private bookstoreDAO bsd;
 	private String buyDate_s;
 	private String buyDate_e;
-	private ArrayList bookstoreList;
+	private ArrayList<Bookstore> bookstoreList;
 	private String myid;
 	private String mystatus;
-	
+	private String nnn;	
+	private double allprice;
 	public bookstoreAction()
 	{
 		bsd=new bookstoreDAO();
@@ -70,6 +71,22 @@ public class bookstoreAction  extends ActionSupport{
 		this.mystatus = mystatus;
 	}
 	
+	public String getNnn() {
+		return nnn;
+	}
+
+	public void setNnn(String nnn) {
+		this.nnn = nnn;
+	}
+	
+	public double getAllprice() {
+		return allprice;
+	}
+
+	public void setAllprice(double allprice) {
+		this.allprice = allprice;
+	}
+	
 	public String delep()
 	{
 		System.out.println(this.myid);
@@ -84,6 +101,14 @@ public class bookstoreAction  extends ActionSupport{
 	public String getBookstores()
 	{
 		this.bookstoreList=bsd.getBookstoreList(this.b.getBookISBN(), this.b.getBookName(), String.valueOf(this.b.getPublisherID()), String.valueOf(this.b.getCategoryID()),this.b.getUnit(),ActionContext.getContext().getSession().get("roleId").toString(),this.b.getAuthor());
+		this.nnn=this.bookstoreList.size()+"";
+		int i=0;
+		this.allprice=0;
+		while(i<this.bookstoreList.size())
+		{
+			this.allprice=this.allprice+this.bookstoreList.get(i).getSalePrice();
+			i=i+1;
+		}
 		return SUCCESS;
 	}
 	

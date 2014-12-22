@@ -11,6 +11,7 @@ body {
 </style>
   <body>
   <h2><center><s:text name="pro.bookout" /></center></h2>
+  <center><a href="selectBookstore.action">…Ë±∏≤È—Ø</a></center>
   <center>
 <s:form action="addBookout" namespace="/admin" method="post">
 <s:textfield name="bo.book.bookISBN" key="pro.book.ISBN" id="bookISBN" onblur="getBook()" ></s:textfield>

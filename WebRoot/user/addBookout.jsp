@@ -3,6 +3,7 @@
 <html>
   <body>
   <h2><center><s:text name="pro.bookout" /></center></h2>
+  <center><a href="selectBookstore.action">设备查询</a></center>
   <center>
 <s:form action="addBookout" namespace="/user" method="post">
 <s:textfield name="bo.book.bookISBN" key="pro.book.ISBN" id="bookISBN" onblur="getBook()" ></s:textfield>

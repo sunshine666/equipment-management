@@ -10,12 +10,12 @@ body {
 </style>
 </head>
   <body>
-  <div id="contentWrap">
+<div id="contentWrap">
 <div class="pageTitle"></div>
 <div class="pageColumn">
 <div class="pageButton"></div>
+<center><h2>设备记录</h2></center>
 <table>
-<center><h2>全部设备记录</h2></center>
 <thead>
 <th><s:text name="pro.book.ISBN"/></th>
 <th><s:text name="设备图片"/></th>
@@ -29,7 +29,6 @@ body {
 <th><s:text name="pro.book.category"/></th>
 <th><s:text name="pro.book.saleprice"/></th>
 <th><s:text name="pro.admin.nownum"/></th>
-<th><s:text name="修改信息"/></th>
 </thead>
 <tbody>
 <s:set name="publisherMap" value="#session.publisherMap" />
@@ -60,7 +59,7 @@ body {
 <td>
 <s:set name="num" value="%{nowNum}"/>
 <s:if test="#num==1">
-	正常使用<s:property value="正常使用"/>
+	<s:property value="nowNum"/>
 </s:if>
 <s:if test="#num==0">
 	待审核<s:property value="待审核"/>
@@ -69,9 +68,6 @@ body {
 	已报废<s:property value="已报废"/>
 </s:if>
 </td>
-     <td><a href='<s:url action="getBook" namespace="/admin">
-    <s:param name="bookISBN" value="bookISBN"></s:param>
-    </s:url>'>修改</a></td>
 </tr>
 </s:iterator>
 <tr>
@@ -84,11 +80,8 @@ body {
 <td></td>
 <td></td>
 <td></td>
-<td></td>
-<td></td>
 <td>总价：</td>
 <td><s:property value="allprice"/></td>
-<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -96,6 +89,7 @@ body {
 </div></div>
   </body>
 </html>
+
 
 
             

@@ -11,6 +11,7 @@ body {
 </style>
   <body>
   <h2><center><s:text name="设备报废" /></center></h2>
+  <center><a href="selectBookstore.action">设备查询</a></center>
   <center>
 <s:form action="delBook" namespace="/user" method="post">
 <s:textfield name="bo.book.bookISBN" key="pro.book.ISBN" id="bookISBN" onblur="getBook()" ></s:textfield>

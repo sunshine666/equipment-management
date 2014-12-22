@@ -137,7 +137,7 @@ public class bookinAction  extends ActionSupport{
 	   
 	               //list集合通过get(i)的方式来获取索引  
 	            	int picc=uploadFileName.get(i).indexOf(".");
-	            	String picname=this.bi.getBook().getBookISBN()+"-"+this.bi.getUnit()+uploadFileName.get(i).substring(picc);
+	            	String picname=this.bi.getBook().getBookISBN()+uploadFileName.get(i).substring(picc);
 	                System.out.println(picname);
 	                picture=picname;
 	               FileUtils.copyFile(upload.get(i), new File(file, picname));  

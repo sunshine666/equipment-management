@@ -20,8 +20,10 @@ public class DBpool
 	            p.load(in);  
 	            in.close(); 
 	            String url=p.getProperty("url"); 
+			    String user="jj40kolo1w";
+				String password="ymj4ji0m13kxjmh4x4l5z1k0w41lkiyjmh3w5mzj";
 				Class.forName("com.mysql.jdbc.Driver").newInstance();
-				conn=DriverManager.getConnection(url);
+				conn=DriverManager.getConnection(url,user,password);
 				
 			}
 			catch(Exception e)

@@ -29,7 +29,6 @@ body {
 <th><s:text name="pro.book.category"/></th>
 <th><s:text name="pro.book.saleprice"/></th>
 <th><s:text name="pro.admin.nownum"/></th>
-<th><s:text name="pro.admin.bookstatus"/></th>
 <th>报废</th>
 </thead>
 <tbody>
@@ -70,23 +69,30 @@ body {
 	已报废<s:property value="已报废"/>
 </s:if>
 </td>
-<td>
-<s:set name="statu" value="%{status}"/>
-<s:if test="#statu==0">
-	删除状态<s:property value="停止销售"/>
-</s:if>
-<s:if test="#statu==1">
-	正常<s:property value="正常销售"/>
-</s:if>
-</td>
  <td>
  <s:if test="#num==1">
  <a href='<s:url action="getBook" namespace="/user">
     <s:param name="bookISBN" value="bookISBN"></s:param>
     </s:url>'>报废</a>
-    </s:if></td>
+    </s:if> 
+    </td>
 </tr>
 </s:iterator>
+<tr>
+<td>数量共计：</td>
+<td><s:property value="nnn" /></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>总价：</td>
+<td><s:property value="allprice"/></td>
+<td></td>
+</tr>
 </tbody>
 </table>
 </div></div>

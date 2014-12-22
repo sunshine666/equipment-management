@@ -3,7 +3,7 @@
 
 	<display-name>BookShop Project</display-name>
    <welcome-file-list>
-    <welcome-file>login.jsp</welcome-file>
+    <welcome-file>/index.jsp</welcome-file>
    </welcome-file-list>
     <filter>
     	<!-- 下面是配置Struts2核心控制器的名字 -->
