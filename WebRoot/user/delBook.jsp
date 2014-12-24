@@ -18,7 +18,7 @@ body {
 <s:textfield name="bo.book.bookName" key="pro.book.name" readonly="true"></s:textfield>
 <s:textarea  name="desc" key="报废原因" rows="6"></s:textarea>
 <s:textfield name="bo.operator" key="审批人"></s:textfield>
-<s:textfield name="jingshou" key="经手人"></s:textfield>
+<s:textfield name="jingshou" key="经办人"></s:textfield>
 <tr>
 <td>日期:</td>
 <td>

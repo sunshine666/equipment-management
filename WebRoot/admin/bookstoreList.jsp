@@ -7,7 +7,7 @@
 body {
 	background:#FFF
 }
-</style>
+</style> 
 </head>
   <body>
   <div id="contentWrap">
@@ -93,7 +93,7 @@ body {
 </tr>
 </tbody>
 </table>
-</div></div>
+</div></div> 
   </body>
 </html>
 

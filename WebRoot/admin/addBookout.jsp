@@ -28,7 +28,7 @@ body {
 <s:hidden name="bo.allPrice" key="pro.book.allprice" readonly="true" id="zj"></s:hidden>
 <td> </td>
 <s:textfield name="bo.operator" key="审批人"></s:textfield>
-<s:textfield name="jingshou" key="经手人"></s:textfield>
+<s:textfield name="jingshou" key="经办人"></s:textfield>
 <s:textfield name="bo.book.unit" key="机构名称" ></s:textfield>
 <tr>
 <td>日期:</td>

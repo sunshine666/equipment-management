@@ -1,5 +1,8 @@
 package pro.db;
+import pro.model.Bookin;
 import pro.model.Bookout;
+import pro.model.Bookstore;
+
 import java.sql.*;
 
 import javax.naming.*;
@@ -94,6 +97,259 @@ public class bookoutDAO
 			}
 		
 		    return jg;
+	}
+    
+    public int addBookout1(Bookout b,String jingshou,String desc,String sbr)
+	{
+			int jg=0;
+			int NowNum=0;
+			int Status=0;
+			try
+			{	
+				state1=conn.createStatement();
+				rs1=state1.executeQuery("select * from bookstore where bookISBN='"+b.getBook().getBookISBN()+"'");
+				if(rs1.next())
+					NowNum=rs1.getInt("NowNum");
+				Status=rs1.getInt("status");
+				if(Status==1)
+				{
+					pstate1=conn.prepareStatement("insert into bookstore2 (bookISBN,bookName,bookDesccs,bookDescid,bookDescrq,bookDescxh,publisherID,author,categoryID,status,unit,sbr,operator,jingshou,outdesc,saleDate) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)" );
+					pstate1.setString(1, b.getBook().getBookISBN());	
+					pstate1.setString(2, b.getBook().getBookName());
+					pstate1.setString(3, b.getBook().getBookDesccs());
+					pstate1.setString(4, b.getBook().getBookDescid());
+					pstate1.setString(5, b.getBook().getBookDescrq());
+					pstate1.setString(6, b.getBook().getBookDescxh());
+					pstate1.setInt(7, b.getBook().getPublisherID());
+					pstate1.setString(8, b.getBook().getAuthor());
+					pstate1.setInt(9, b.getBook().getCategoryID());
+					pstate1.setInt(10, 1);
+					pstate1.setString(11, b.getBook().getUnit());
+					pstate1.setString(12, sbr);
+					pstate1.setString(13, b.getOperator());
+					pstate1.setString(14, jingshou);
+					pstate1.setString(15, desc);
+					pstate1.setString(16, b.getSaleDate());
+					jg=pstate1.executeUpdate();	
+				}
+			}
+			catch(SQLException e)
+			{
+				e.printStackTrace();
+			}
+			finally
+			{
+				try
+				{
+					rs1.close();
+					state1.close();
+					pstate1.close();
+					
+				}
+				catch(SQLException e)
+				{
+					e.printStackTrace();
+				}
+			}
+		
+		    return jg;
+	}
+    
+    public ArrayList getoutlist(String name)
+   	{
+   		ArrayList c=new ArrayList();
+   		/*
+   		select bi.buyID bi.buyDate bi.buyNum bs.bookISBN bs.bookName bs.bookDesc bs.publisherID bs.author bs.categoryID bs.salePrice 
+   		*/	
+   		try
+   		{	
+   			state1=conn.createStatement();
+   			rs1=state1.executeQuery("select * from bookstore2 where sbr='"+name+"'");
+   			bookstoreDAO bd=new bookstoreDAO();
+   			while(rs1.next())
+   			{
+   				System.out.println("-bbb-");
+   				Bookout bo=new Bookout();
+   				Bookstore b=new Bookstore();
+   				b.setBookISBN(rs1.getString("bookISBN"));
+   				b.setBookName(rs1.getString("bookName"));
+   				b.setBookDesccs(rs1.getString("bookDesccs"));
+   				b.setBookDescid(rs1.getString("bookDescid"));
+   				b.setBookDescrq(rs1.getString("bookDescrq"));
+   				b.setBookDescxh(rs1.getString("bookDescxh"));
+   				b.setAuthor(rs1.getString("author"));
+   				b.setCategoryID(rs1.getInt("categoryID"));
+   				b.setPublisherID(rs1.getInt("publisherID"));
+   				b.setStatus(rs1.getInt("status"));
+   				b.setUnit(rs1.getString("unit"));
+   				bo.setBook(b);
+   				bo.setSaleDate(rs1.getString("saleDate"));
+   				bo.setJingshou(rs1.getString("jingshou"));
+   				bo.setOperator(rs1.getString("operator"));
+   				
+   				c.add(bo);
+   			}
+
+   		}
+   		catch(SQLException e)
+   		{
+   			e.printStackTrace();
+   		}
+   		finally
+   		{
+   			try
+   			{
+   				rs1.close();
+   				state1.close();	
+   			}
+   			catch(SQLException e)
+   			{
+   				e.printStackTrace();
+   			}
+   		}
+   	
+   	return c; 		
+   	}
+    
+    public ArrayList getoutlist1()
+   	{
+   		ArrayList c=new ArrayList();
+   		/*
+   		select bi.buyID bi.buyDate bi.buyNum bs.bookISBN bs.bookName bs.bookDesc bs.publisherID bs.author bs.categoryID bs.salePrice 
+   		*/	
+   		try
+   		{	
+   			state1=conn.createStatement();
+   			rs1=state1.executeQuery("select * from bookstore2 where 1");
+   			bookstoreDAO bd=new bookstoreDAO();
+   			while(rs1.next())
+   			{
+   				System.out.println("-bbb-");
+   				Bookout bo=new Bookout();
+   				Bookstore b=new Bookstore();
+   				b.setBookISBN(rs1.getString("bookISBN"));
+   				b.setBookName(rs1.getString("bookName"));
+   				b.setBookDesccs(rs1.getString("bookDesccs"));
+   				b.setBookDescid(rs1.getString("bookDescid"));
+   				b.setBookDescrq(rs1.getString("bookDescrq"));
+   				b.setBookDescxh(rs1.getString("bookDescxh"));
+   				b.setAuthor(rs1.getString("author"));
+   				b.setCategoryID(rs1.getInt("categoryID"));
+   				b.setPublisherID(rs1.getInt("publisherID"));
+   				b.setStatus(rs1.getInt("status"));
+   				b.setUnit(rs1.getString("unit"));
+   				bo.setBook(b);
+   				bo.setSaleDate(rs1.getString("saleDate"));
+   				bo.setJingshou(rs1.getString("jingshou"));
+   				bo.setOperator(rs1.getString("operator"));
+   				
+   				c.add(bo);
+   			}
+
+   		}
+   		catch(SQLException e)
+   		{
+   			e.printStackTrace();
+   		}
+   		finally
+   		{
+   			try
+   			{
+   				rs1.close();
+   				state1.close();	
+   			}
+   			catch(SQLException e)
+   			{
+   				e.printStackTrace();
+   			}
+   		}
+   	
+   	return c; 		
+   	}
+    
+    public boolean shan1(String id)
+   	{
+   			int jg=0;
+   			try
+   			{	
+   				state1=conn.createStatement();
+   				jg=state1.executeUpdate("delete from bookstore2 where bookISBN='"+id+"'");
+   	
+   			}
+   			catch(SQLException e)
+   			{
+   				e.printStackTrace();
+   			}
+   			finally
+   			{
+   				try
+   				{	
+   					state1.close();	
+   				}
+   				catch(SQLException e)
+   				{
+   					e.printStackTrace();
+   				}
+   			}	
+   		    	return true;
+
+   	}
+    
+    public int getBookout(String ISBN)
+	{
+		int jg=0;
+		try
+		{	
+			state1=conn.createStatement();
+			rs1=state1.executeQuery("select * from bookstore2 where bookISBN='"+ISBN+"'");
+		    if(rs1.next())
+		    {
+			pstate1=conn.prepareStatement("update bookstore set author=?,bookDesccs=?,bookDescid=?,bookDescrq=?,bookDescxh=?,unit=?,categoryID=?,publisherID=? where bookISBN=?");
+			pstate1.setString(1, rs1.getString("author"));	
+			pstate1.setString(2, rs1.getString("bookDesccs"));
+			pstate1.setString(3, rs1.getString("bookDescid"));
+			pstate1.setString(4, rs1.getString("bookDescrq"));
+			pstate1.setString(5, rs1.getString("bookDescxh"));
+			pstate1.setString(6, rs1.getString("unit"));
+			pstate1.setInt(7, rs1.getInt("categoryID"));
+			pstate1.setInt(8, rs1.getInt("publisherID"));
+			pstate1.setString(9, rs1.getString("bookISBN"));
+			
+			pstate1.executeUpdate();
+			pstate1.close();
+		
+			pstate2=conn.prepareStatement("insert into bookout (bookISBN,saleDate,SaleNum,allPrice,operator,unit,jingshou,outdesc) values (?,?,?,?,?,?,?,?)");
+			pstate2.setString(1, rs1.getString("bookISBN"));
+			pstate2.setString(2, rs1.getString("saleDate"));
+			pstate2.setInt(3, 1);
+			pstate2.setDouble(4, 0);
+			pstate2.setString(5, rs1.getString("operator"));
+			pstate2.setString(6, rs1.getString("unit"));
+			pstate2.setString(7, rs1.getString("jingshou"));
+			pstate2.setString(8, rs1.getString("outdesc"));
+		
+		    jg=pstate2.executeUpdate();	
+		    }
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+		finally
+		{
+			try
+			{
+				rs1.close();
+				state1.close();	
+				pstate2.close();
+			}
+			catch(SQLException e)
+			{
+				e.printStackTrace();
+			}
+		}
+
+	return jg; 		
 	}
     
     public int delBook(Bookout b,String desc,String jingshou)

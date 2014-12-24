@@ -130,6 +130,45 @@ public class bookoutAction  extends ActionSupport{
 		    return ERROR;
 	}
 	
+	public String shan1()
+	{
+		if(bod.shan1(this.bookISBN))
+			return SUCCESS;
+		else
+		    return ERROR;
+	}
+	
+	public String getBookout()
+	{
+		if(bod.getBookout(this.bookISBN)==1)
+		{
+			bod.shan1(this.bookISBN);
+			return SUCCESS;
+		}
+		else
+		    return ERROR;
+	}
+	
+	public String addBookout1()
+	{
+		if(bod.addBookout1(this.bo,this.jingshou,this.desc,ActionContext.getContext().getSession().get("loginname").toString())==1)
+			return SUCCESS;
+		else
+			return ERROR;
+	}
+	
+	public String getoutlist()
+	{
+		this.bookoutList=bod.getoutlist(ActionContext.getContext().getSession().get("loginname").toString());
+		return SUCCESS;
+	}
+	
+	public String getoutlist1()
+	{
+		this.bookoutList=bod.getoutlist1();
+		return SUCCESS;
+	}
+	
 	public String getBook()
 	{
 		this.b=bsd.getBookByISBN(this.bookISBN,ActionContext.getContext().getSession().get("unit").toString());

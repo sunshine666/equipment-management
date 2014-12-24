@@ -12,7 +12,7 @@ body {
   <body>
   <h2><center><s:text name="pro.bookin" /></center></h2>
   <center>
-<s:form action="addBookin" namespace="/user" method="post" enctype="multipart/form-data">
+<s:form action="addBookin" namespace="/admin" method="post" enctype="multipart/form-data">
 <s:textfield name="bi.book.bookISBN" key="pro.book.ISBN"></s:textfield>
 <s:textfield name="bi.book.bookName" key="pro.book.name"></s:textfield>
 <s:textfield name="bi.book.bookDesccs" key="生产厂商" ></s:textfield>
@@ -30,7 +30,7 @@ body {
 <s:textfield name="bi.book.salePrice" key="pro.book.saleprice"></s:textfield>
 <s:textfield name="bi.buyNum" key="pro.book.innum"></s:textfield>
 <s:textfield name="bi.operator" key="审批人"></s:textfield>
-<s:textfield name="jingshou" key="经手人"></s:textfield>
+<s:textfield name="jingshou" key="经办人"></s:textfield>
 <tr>
 <td>日期:</td>
 <td>

@@ -89,6 +89,23 @@
     		<result>/success.html</result>
     		<result name="input">/admin/addBookin.jsp</result>
     	</action>  
+    	
+    	<action name="newbook" class="pro.action.bookinAction" method="getBookin">
+    		<result type="redirect">newin.action</result>
+    	</action>
+    	
+    	<action name="newin" class="pro.action.bookinAction" method="getinlist1">
+    		<result>/admin/newin.jsp</result>
+    	</action>
+    	
+    	 <action name="newout" class="pro.action.bookoutAction" method="getoutlist1">
+    		<result>/admin/newout.jsp</result>
+    	</action> 
+    	
+    	 <action name="getBookout" class="pro.action.bookoutAction" method="getBookout">
+    		<result type="redirect">newout.action</result>
+    	</action> 
+    	
     	<action name="delBook1" class="pro.action.bookoutAction" method="getdelBook1">
     		<result>/admin/delBook1.jsp</result>
     	</action>
@@ -116,7 +133,8 @@
     	</action>
     	
         <action name="getCategory" class="pro.action.categoryAction" method="getCategory">
-    		<result>/admin/editCategory.jsp</result><result name="error">/error.jsp</result>
+    		<result>/admin/editCategory.jsp</result>
+    		<result name="error">/error.jsp</result>
     	</action>
     	
      	<action name="editCategory" class="pro.action.categoryAction" method="editCategory">
@@ -169,6 +187,18 @@
     		<result type="redirect">userList.action</result>
     	</action>
     	
+    	<action name="shan" class="pro.action.bookoutAction" method="shan">
+    		<result type="redirect">delBook1.action</result>
+    	</action>
+    	
+    	<action name="shan1" class="pro.action.bookinAction" method="shan">
+    		<result type="redirect">newin.action</result>
+    	</action>
+    	
+    	<action name="shan2" class="pro.action.bookoutAction" method="shan1">
+    		<result type="redirect">newout.action</result>
+    	</action>
+    	
     	<action name="userList" class="pro.action.userAction" method="getAllUsers">
     		<result>userList.jsp</result>
     	</action>
@@ -201,8 +231,16 @@
     		<result>/success.html</result>
     		<result name="input">/user/addBookin.jsp</result>
     	</action>  
+    	
+    	<action name="newin" class="pro.action.bookinAction" method="getinlist">
+    		<result>/user/newin.jsp</result>
+    	</action>
    
-    	<action name="addBookout" class="pro.action.bookoutAction" method="addBookout">
+        <action name="newout" class="pro.action.bookoutAction" method="getoutlist">
+    		<result>/user/newout.jsp</result>
+    	</action> 
+         
+    	<action name="addBookout" class="pro.action.bookoutAction" method="addBookout1">
     		<result>/success.html</result>
     		<result name="input">/user/addBookout.jsp</result>
     	</action>
@@ -218,6 +256,10 @@
     		<result>/user/delBook.jsp</result>
     	</action> 
     	
+    	<action name="getBook2" class="pro.action.bookoutAction" method="getBook">
+    		<result>/user/addBookout.jsp</result>
+    	</action> 
+    	
     	<action name="delBook" class="pro.action.bookoutAction" method="delBook1">
     		<result>/success.html</result>
     		<result name="input">/user/delBook.jsp</result>
@@ -229,6 +271,14 @@
     	
     	<action name="shan" class="pro.action.bookoutAction" method="shan">
     		<result type="redirect">dellist.action</result>
+    	</action>
+    	
+    	<action name="shan1" class="pro.action.bookinAction" method="shan">
+    		<result type="redirect">newin.action</result>
+    	</action>
+    	
+    	<action name="shan2" class="pro.action.bookoutAction" method="shan1">
+    		<result type="redirect">newout.action</result>
     	</action>
     	
     	<action name="*" class="pro.action.userAction" method="input">

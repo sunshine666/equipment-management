@@ -75,8 +75,18 @@ $(function(){
             <li class="subMenu"><a href='<s:url action="userList" namespace="/admin" />' target="right">用户管理</a></li>
             <li class="subMenu"><a href='<s:url action="publisherList" namespace="/admin" />' target="right">负责人管理</a></li>
             <li class="subMenu"><a href='<s:url action="categoryList" namespace="/admin" />' target="right">类别管理</a></li>
-            <li class="subMenu"><a href="admin/addBookin.action" target="right">添加新设备</a></li>
-            <li class="subMenu"><a href="admin/addBookout.action" target="right">设备修改</a></li>
+            <li class="subMenu"><a href="#">设备添加</a>
+            <ul>
+                  <li><a href="admin/addBookin.action" target="right">直接添加</a></li>
+                  <li><a href="admin/newin.action" target="right">待添加项</a></li>
+            </ul>
+            </li>
+            <li class="subMenu"><a href="#">设备修改</a>
+               <ul>
+                  <li><a href="admin/addBookout.action" target="right">直接修改</a></li>
+                  <li><a href="admin/newout.action" target="right">待处理项</a></li>
+               </ul>
+            </li>
             <li class="subMenu"><a href="#">报废处理</a>
             	<ul>
                 	<li><a href='<s:url action="delBook1" namespace="/admin" />' target="right">待报废项</a></li>
@@ -96,8 +106,25 @@ $(function(){
     <ul>
         	<li class="subMenuTitle">功能列表</li>
             <li class="subMenu"><a href="user/editPwd.action" target="right">修改密码</a> </li>
-            <li class="subMenu"><a href="user/delBook.jsp" target="right">设备报废申请</a></li>
-            <li class="subMenu"><a href="user/dellist.action" target="right">报废记录</a></li>
+             <li class="subMenu"><a href="#">设备添加操作</a>
+            	<ul>
+                	<li><a href="user/addBookin.action" target="right">添加设备</a></li>
+                    <li><a href="user/newin.action" target="right">添加记录</a></li>
+                </ul>
+            </li>
+             <li class="subMenu"><a href="#">设备修改操作</a>
+            	<ul>
+                	<li><a href="user/addBookout.action" target="right">信息修改</a></li>
+                    <li><a href="user/newout.action" target="right">修改记录</a></li>
+                </ul>
+            </li>
+            <li class="subMenu"><a href="#">设备报废操作</a>
+                <ul>
+                   <li><a href="user/delBook.jsp" target="right">报废申请</a></li>
+                   <li><a href="user/dellist.action" target="right">报废记录</a></li>
+                   
+                </ul>
+            </li>
             <li class="subMenu"><a href="user/selectBookstore1.action" target="right">设备查询</a></li>
         </ul>
     </s:elseif>

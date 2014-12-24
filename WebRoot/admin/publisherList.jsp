@@ -37,7 +37,7 @@ body {
 <td></td>
 </tr>
 <tr>
-<td>添加新负责机构：</td>
+<td>添加新负责单位：</td>
 <td><a href='addPublisher.action'><s:text name="pro.admin.addpublisher"/></a></td>
 <td></td>
 </tr>

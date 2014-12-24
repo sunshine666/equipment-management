@@ -18,9 +18,10 @@ body {
 <thead>
 <th><s:text name="pro.book.ISBN" /></th>
 <th><s:text name="pro.book.name" /></th>
-<th><s:text name="报废日期" /></th>
-<th><s:text name="审批人" /></th>
+<th><s:text name="上报日期" /></th>
 <th><s:text name="经办人" /></th>
+<th><s:text name="审批人" /></th>
+<th><s:text name="添加该项" /></th>
 <th><s:text name="删除该项" /></th>
 </thead>
 <tbody>
@@ -29,18 +30,17 @@ body {
 <td><s:property value="book.bookISBN" /></td>
 <td><s:property value="book.bookName" /></td>
 <td><s:property value="saleDate" /></td>
-<td><s:property value="operator" /></td>
 <td><s:property value="jingshou" /></td>
+<td><s:property value="operator" /></td>
 <td>
-<s:set name="num" value="%{book.nowNum}"/>
-<s:if test="#num==0">
-    <a href='<s:url action="shan" namespace="/user">
+    <a href='<s:url action="getBookout" namespace="/admin">
     <s:param name="bookISBN" value="book.bookISBN"></s:param>
     </s:url>'>确定</a>
-</s:if>
-<s:if test="#num==-1">
-	已报废<s:property value="已报废"/>
-</s:if>
+</td>
+<td>
+    <a href='<s:url action="shan2" namespace="/admin">
+    <s:param name="bookISBN" value="book.bookISBN"></s:param>
+    </s:url>'>确定</a>
 </td>
 </tr>
 </s:iterator>

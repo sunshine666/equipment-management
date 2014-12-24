@@ -24,8 +24,9 @@ body {
 <th><s:text name="报废原因" /></th>
 <th><s:text name="报废日期" /></th>
 <th><s:text name="审批人" /></th>
-<th><s:text name="经手人" /></th>
+<th><s:text name="经办人" /></th>
 <th><s:text name="允许报废" /></th>
+<th><s:text name="取消报废" /></th>
 </thead>
 <tbody>
 <s:set name="publisherMap" value="#session.publisherMap" />
@@ -58,6 +59,9 @@ body {
  <td><a href='<s:url action="queren" namespace="/admin">
     <s:param name="bookISBN" value="book.bookISBN"></s:param>
     </s:url>'>确定</a></td>
+  <td><a href='<s:url action="shan" namespace="/admin">
+    <s:param name="bookISBN" value="book.bookISBN"></s:param>
+    </s:url>'>确定</a></td>  
 </tr>
 </s:iterator>
 </tbody>

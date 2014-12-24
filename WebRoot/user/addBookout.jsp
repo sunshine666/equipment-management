@@ -1,22 +1,37 @@
-<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=GBK" pageEncoding="GBK"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <html>
+<script type="text/javascript" src="../My97DatePicker/WdatePicker.js"></script>
+  <style type="text/css">
+<!--
+body {
+	background-image: url(../img/back1.jpg);    
+}
+-->
+</style>
   <body>
   <h2><center><s:text name="pro.bookout" /></center></h2>
-  <center><a href="selectBookstore.action">璁惧鏌ヨ</a></center>
+  <center><a href="selectBookstore.action">设备查询</a></center>
   <center>
 <s:form action="addBookout" namespace="/user" method="post">
 <s:textfield name="bo.book.bookISBN" key="pro.book.ISBN" id="bookISBN" onblur="getBook()" ></s:textfield>
 <s:textfield name="bo.book.bookName" key="pro.book.name" readonly="true"></s:textfield>
-<s:textfield name="bo.book.author" key="pro.book.author" readonly="true"></s:textfield>
-<s:textfield name="bo.book.bookDesc" key="pro.book.desc" readonly="true"></s:textfield>
-<s:textfield name="bo.book.salePrice" key="pro.book.saleprice" readonly="true" id="saleprice"></s:textfield>
-<s:textfield name="bo.SaleNum" key="pro.book.salenum" onblur="jisuan()" id="salenum"></s:textfield>
+<s:textarea  name="desc" key="修改项说明" rows="4"></s:textarea>
+<td>可修改项如下：</td>
+<s:textfield name="bo.book.author" key="pro.book.author" ></s:textfield>
+<s:select key="pro.book.publisher" name="bo.book.publisherID"  list="#session.publisherMap" listKey="key" listValue="value"></s:select>
+<s:select key="pro.book.category" name="bo.book.categoryID"  list="#session.categoryMap" listKey="key" listValue="value"></s:select>
+<s:textfield name="bo.book.bookDesccs" key="生产厂商" ></s:textfield>
+<s:textfield name="bo.book.bookDescid" key="出厂编号"></s:textfield>
+<s:textfield name="bo.book.bookDescrq" key="设备生产日期"></s:textfield>
+<s:textfield name="bo.book.bookDescxh" key="设备型号"></s:textfield>
 <s:hidden name="bo.allPrice" key="pro.book.allprice" readonly="true" id="zj"></s:hidden>
-<input type="hidden" value="<% out.print(session.getAttribute("loginname")); %>" name="bo.operator">
-<input type="hidden" value="<% out.print(session.getAttribute("unit")); %>" name="bo.unit">
+<td> </td>
+<s:textfield name="bo.operator" key="审批人"></s:textfield>
+<s:textfield name="jingshou" key="经办人"></s:textfield>
+<s:textfield name="bo.book.unit" key="机构名称" ></s:textfield>
 <tr>
-<td>鏃ユ湡:</td>
+<td>日期:</td>
 <td>
       <input id="d13" name="bo.saleDate" type="text"/>
      <img onclick="WdatePicker({el:$dp.$('d13')})" src="../My97DatePicker/skin/datePicker.gif" width="16" height="22" align="absmiddle">
@@ -31,7 +46,7 @@ function getBook()
 {
 	if(document.getElementById("bookISBN").value=="")
 	{
-		alert("璁惧缂栧彿涓嶈兘涓虹┖!");
+		alert("设备编号不能为空!");
 		return false;
 	}
 	else
@@ -42,7 +57,7 @@ function jisuan()
 {
 	if(document.getElementById("salenum").value=="" || isNaN(document.getElementById("salenum").value))
 	{
-		alert("鍊熷嚭鏁伴噺涓嶈兘涓虹┖,鑰屼笖蹇呴』鏄暟瀛楋紒");
+		alert("借出数量不能为空,而且必须是数字！");
 		return false;
 	}
 	else

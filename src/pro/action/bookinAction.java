@@ -1,4 +1,5 @@
 package pro.action;
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import pro.model.Bookin;
 import pro.model.Bookstore;
@@ -149,8 +150,18 @@ public class bookinAction  extends ActionSupport{
 	        }  
 	        System.out.println(path);
 	        path=uploadFileName.get(0);
-	        System.out.println(path);
-	        if(bid.addBookin(this.bi,picture,this.jingshou)==1)
+	        System.out.println(ActionContext.getContext().getSession().get("roleId").toString());
+	        int iii=0;
+	        if(ActionContext.getContext().getSession().get("roleId").toString().equals("2"))
+	        {
+	        	System.out.println("yes");
+	        	iii=bid.addBookin1(this.bi,picture,this.jingshou,ActionContext.getContext().getSession().get("loginname").toString());
+	        }
+	        else
+	        {
+	        	iii=bid.addBookin(this.bi,picture,this.jingshou);
+	        }
+	        if(iii==1)
 				return SUCCESS;
 			else
 				return ERROR;
@@ -168,6 +179,37 @@ public class bookinAction  extends ActionSupport{
 	{
 		this.bookinList=bid.getBookinList(this.b.getBookISBN(), this.b.getBookName(), String.valueOf(this.b.getPublisherID()), String.valueOf(this.b.getCategoryID()), this.buyDate_s, this.buyDate_e,this.b.getUnit());
 		return SUCCESS;
+	}
+	
+	public String shan()
+	{
+		if(bid.shan(this.jingshou))
+			return SUCCESS;
+		else
+		    return ERROR;
+	}
+	
+	public String getinlist()
+	{
+		this.bookinList=bid.getinlist(ActionContext.getContext().getSession().get("loginname").toString());
+		return SUCCESS;
+	}
+	
+	public String getinlist1()
+	{
+		this.bookinList=bid.getinlist1();
+		return SUCCESS;
+	}
+	
+	public String getBookin()
+	{
+		if(bid.getBookin(this.jingshou)==1)
+		{
+			bid.shan(this.jingshou);
+		    return SUCCESS;
+		}
+		else
+			return ERROR;
 	}
 
 }

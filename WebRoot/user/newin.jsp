@@ -18,29 +18,23 @@ body {
 <thead>
 <th><s:text name="pro.book.ISBN" /></th>
 <th><s:text name="pro.book.name" /></th>
-<th><s:text name="报废日期" /></th>
-<th><s:text name="审批人" /></th>
+<th><s:text name="上报日期" /></th>
 <th><s:text name="经办人" /></th>
+<th><s:text name="审批人" /></th>
 <th><s:text name="删除该项" /></th>
 </thead>
 <tbody>
-<s:iterator value="bookoutList">
+<s:iterator value="bookinList">
 <tr class=" trLight">
 <td><s:property value="book.bookISBN" /></td>
 <td><s:property value="book.bookName" /></td>
-<td><s:property value="saleDate" /></td>
-<td><s:property value="operator" /></td>
+<td><s:property value="buyDate" /></td>
 <td><s:property value="jingshou" /></td>
+<td><s:property value="operator" /></td>
 <td>
-<s:set name="num" value="%{book.nowNum}"/>
-<s:if test="#num==0">
-    <a href='<s:url action="shan" namespace="/user">
-    <s:param name="bookISBN" value="book.bookISBN"></s:param>
+    <a href='<s:url action="shan1" namespace="/user">
+    <s:param name="jingshou" value="book.bookISBN"></s:param>
     </s:url>'>确定</a>
-</s:if>
-<s:if test="#num==-1">
-	已报废<s:property value="已报废"/>
-</s:if>
 </td>
 </tr>
 </s:iterator>

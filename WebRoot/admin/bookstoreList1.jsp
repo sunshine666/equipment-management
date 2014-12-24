@@ -14,7 +14,7 @@ body {
 <div class="pageTitle"></div>
 <div class="pageColumn">
 <div class="pageButton"></div>
-<table>
+<table id="tab1">
 <center><h2>全部设备记录</h2></center>
 <thead>
 <th><s:text name="pro.book.ISBN"/></th>
@@ -88,7 +88,7 @@ body {
 </table>
 </div></div>
   </body>
-</html>
+</html> 
 
 
             

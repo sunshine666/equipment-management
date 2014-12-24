@@ -30,6 +30,7 @@ body {
 <th><s:text name="pro.book.saleprice"/></th>
 <th><s:text name="pro.admin.nownum"/></th>
 <th>报废</th>
+<th>修改</th>
 </thead>
 <tbody>
 <s:set name="publisherMap" value="#session.publisherMap" />
@@ -76,6 +77,13 @@ body {
     </s:url>'>报废</a>
     </s:if> 
     </td>
+ <td>
+ <s:if test="#num==1">
+ <a href='<s:url action="getBook2" namespace="/user">
+    <s:param name="bookISBN" value="bookISBN"></s:param>
+    </s:url>'>修改</a>
+    </s:if> 
+    </td>   
 </tr>
 </s:iterator>
 <tr>

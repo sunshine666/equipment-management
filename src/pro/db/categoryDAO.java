@@ -74,7 +74,7 @@ public class categoryDAO
 			try
 			{	
 				state=conn.createStatement();
-				rs=state.executeQuery("select * from Category");
+				rs=state.executeQuery("select * from category");
 				while(rs.next())
 				{
 					Category c=new Category();

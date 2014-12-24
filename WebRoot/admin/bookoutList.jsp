@@ -26,7 +26,7 @@ body {
 <th><s:text name="pro.book.saleprice" /></th>
 <th><s:text name="pro.book.saledate" /></th>
 <th><s:text name="审批人" /></th>
-<th><s:text name="经手人" /></th>
+<th><s:text name="经办人" /></th>
 </thead>
 <tbody>
 <s:set name="publisherMap" value="#session.publisherMap" />
